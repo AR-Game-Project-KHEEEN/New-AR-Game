@@ -44,18 +44,18 @@ export default class HelloWorldSceneAR extends Component {
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} 
           position={[0, 3, 1]} color="#ffffff" castsShadow={true} /> 
         <ViroARPlaneSelector>
-            <ViroNode position={[.5,-.5,-.5]}>
+            <ViroNode position={[0,-3,-2]}>
                 <ViroQuad
 
-                  position={[0.1, -.5, -.2]}
+                  position={[2, -.5, -.2]}
 
-                  materials={["grid"]}
+                  materials={["grid2"]}
 
                   rotation={[-90, 0, 0]}
 
-                  height={7}
+                  height={50}
 
-                  width={7}
+                  width={50}
 
                   physicsBody={{
 
@@ -81,6 +81,8 @@ export default class HelloWorldSceneAR extends Component {
 
                   useGravity: true,
 
+                  friction: 1,
+
                   }}
 
                 />
@@ -99,6 +101,8 @@ export default class HelloWorldSceneAR extends Component {
 
                   useGravity: true,
 
+                  friction: 0.5,
+
                   }}
 
                 />
@@ -112,7 +116,7 @@ export default class HelloWorldSceneAR extends Component {
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        text : "Hello World!"
+        text : "Choose a place to start the game"
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
@@ -134,6 +138,16 @@ ViroMaterials.createMaterials({
   grid: {
     diffuseTexture: require('./res/guadalupe_360.jpg'),
   },
+});
+
+ViroMaterials.createMaterials({
+
+  grid2: {
+
+    diffuseTexture: require('./res/test-grid.png'),
+
+  },
+
 });
 
 ViroAnimations.registerAnimations({
