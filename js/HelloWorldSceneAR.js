@@ -9,14 +9,14 @@ import {
   ViroText,
   ViroConstants,
   ViroBox,
+  ViroQuad,
   ViroMaterials,
   Viro3DObject,
   ViroAmbientLight,
   ViroSpotLight,
   ViroARPlaneSelector,
   ViroNode,
-  ViroAnimations,
-  ViroQuad,
+  ViroAnimations
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
@@ -33,6 +33,7 @@ export default class HelloWorldSceneAR extends Component {
     this._onInitialized = this._onInitialized.bind(this);
   }
 
+
   render() { 
 
     return ( 
@@ -42,49 +43,68 @@ export default class HelloWorldSceneAR extends Component {
         <ViroAmbientLight color={"#aaaaaa"} /> 
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} 
           position={[0, 3, 1]} color="#ffffff" castsShadow={true} /> 
-        <ViroNode position={[.5,-.5,-.5]} dragType="FixedToWorld" onDrag={()=>{}} > 
-          <Viro3DObject 
-            source={require('./res/emoji_smile/emoji_smile.vrx')} 
-            resources={[require('./res/emoji_smile/emoji_smile_diffuse.png'), 
-                require('./res/emoji_smile/emoji_smile_normal.png'), 
-                require('./res/emoji_smile/emoji_smile_specular.png')]} 
-            position={[0, .15, 0]} 
-            scale={[.3, .3, .3]} 
-            type="VRX" /> 
-        </ViroNode> 
-        <ViroNode position={[.5,-.5,-.5]} dragType="FixedToWorld" onDrag={()=>{}} >  
-            <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .1]} materials={["grid"]} animation={{name: "rotate", run: false, loop: false}} dragType="FixedToWorld" onDrag= {() => {}} 
-              physicsBody={{ 
-              type:'dynamic', mass:1, 
-              force:{value:[0,0,1]}, 
-              torque:[0,30,0], 
-              velocity: [0,-1,0], 
-              }} 
-              /> 
-              <ViroQuad 
-                position={[0, -.5, -1]} 
-                materials={["grid"]} 
-                rotation={[-90, 0, 0]} 
-                height={2} 
-                width={2} 
-                physicsBody={{ 
-                type: "Kinematic", 
-                mass:0, 
-                }} 
-                /> 
-        </ViroNode> 
         <ViroARPlaneSelector>
-            <ViroNode position={[.5,-.5,-.5]} dragType="FixedToWorld" onDrag={()=>{}} >
-              <Viro3DObject
-                  source={require('./res/emoji_smile/emoji_smile.vrx')}
-                  resources={[require('./res/emoji_smile/emoji_smile_diffuse.png'),
-                      require('./res/emoji_smile/emoji_smile_normal.png'),
-                      require('./res/emoji_smile/emoji_smile_specular.png')]}
-                  position={[0, .15, 0]}
-                  scale={[.3, .3, .3]}
-                  type="VRX" />
-            </ViroNode>
-         </ViroARPlaneSelector>
+            <ViroNode position={[.5,-.5,-.5]}>
+                <ViroQuad
+
+                  position={[0.1, -.5, -.2]}
+
+                  materials={["grid"]}
+
+                  rotation={[-90, 0, 0]}
+
+                  height={7}
+
+                  width={7}
+
+                  physicsBody={{
+
+                  type: "Static",
+
+                  mass:0,
+
+                  }}
+
+                />
+
+                <ViroBox position={[0.1, -.4, -.2]} scale={[.3, .3, .1]} materials={["grid"]} animation={{name: "rotate", run: false, loop: false}} dragType="FixedToWorld" onDrag= {() => {}}
+
+                  physicsBody={{
+
+                  type:'Dynamic', mass:10,
+
+                  shape:{type:'Box', params:[0.4,0.4,0.2]},
+
+                  force:{value:[0,0,10]},
+
+                  torque:[0,0,0],
+
+                  useGravity: true,
+
+                  }}
+
+                />
+
+                <ViroBox position={[0.7, -.5, -.5]} scale={[.3, .3, .1]} materials={["grid"]} animation={{name: "rotate", run: false, loop: false}}
+
+                  physicsBody={{
+
+                  type:'Dynamic', mass:10,
+
+                  shape:{type:'Box', params:[0.4,0.4,0.2]},
+
+                  force:{value:[0,0,10]},
+
+                  torque:[0,0,0],
+
+                  useGravity: true,
+
+                  }}
+
+                />
+
+              </ViroNode>
+        </ViroARPlaneSelector>
       </ViroARScene> 
     ); 
   } 
