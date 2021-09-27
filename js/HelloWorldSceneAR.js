@@ -47,15 +47,15 @@ export default class HelloWorldSceneAR extends Component {
             <ViroNode position={[0,-3,-2]}>
                 <ViroQuad
 
-                  position={[2, -.5, -.2]}
+                  position={[0, -3, -2]}
 
                   materials={["grid2"]}
 
                   rotation={[-90, 0, 0]}
 
-                  height={50}
+                  height={8}
 
-                  width={50}
+                  width={8}
 
                   physicsBody={{
 
@@ -67,7 +67,7 @@ export default class HelloWorldSceneAR extends Component {
 
                 />
 
-                <ViroBox position={[0.1, -.4, -.2]} scale={[.3, .3, .1]} materials={["grid"]} animation={{name: "rotate", run: false, loop: false}} dragType="FixedToWorld" onDrag= {() => {}}
+                <ViroBox position={[0.1, -.4, -.2]} scale={[.3, .3, .1]} materials={["black"]} animation={{name: "rotate", run: false, loop: false}} dragType="FixedToWorld" onDrag= {() => {}}
 
                   physicsBody={{
 
@@ -87,7 +87,7 @@ export default class HelloWorldSceneAR extends Component {
 
                 />
 
-                <ViroBox position={[0.7, -.5, -.5]} scale={[.3, .3, .1]} materials={["grid"]} animation={{name: "rotate", run: false, loop: false}}
+                <ViroBox position={[0.7, -.5, -.5]} scale={[.3, .3, .1]} materials={["white"]} animation={{name: "rotate", run: false, loop: false}}
 
                   physicsBody={{
 
@@ -135,9 +135,12 @@ var styles = StyleSheet.create({
 });
 
 ViroMaterials.createMaterials({
-  grid: {
-    diffuseTexture: require('./res/guadalupe_360.jpg'),
+  black: {
+    diffuseTexture: require('./res/black.jpg'),
   },
+  white: {
+    diffuseTexture: require('./res/white.jpg')
+  }
 });
 
 ViroMaterials.createMaterials({
