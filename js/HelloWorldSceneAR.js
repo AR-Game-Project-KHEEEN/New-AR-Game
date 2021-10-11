@@ -1,16 +1,6 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import { TouchableHighlight } from 'react-native';
-import { Text } from 'react-native';
-import { View } from 'react-native';
-import { ViroButton, ViroScene } from 'react-viro';
-import { ViroFlexView } from 'react-viro';
-import { ViroImage } from 'react-viro';
-import { TouchableOpacity } from 'react-native';
-import { Image } from 'react-native';
-
 import {StyleSheet} from 'react-native';
 
 
@@ -45,10 +35,11 @@ export default class HelloWorldSceneAR extends Component {
 
     }
 
-    collisionEffect = () => {
+    onBoxCollide() {
 
-      console.log("Törmäys onnistui");
- 
+      render (
+      <ViroText text={"Törmäys onnistui"} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
+      );
     }
 
   render() { 
@@ -60,13 +51,6 @@ export default class HelloWorldSceneAR extends Component {
         <ViroAmbientLight color={"#aaaaaa"} /> 
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} 
           position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
-
-        <ViroFlexView style={{flexDirection: 'row', padding: .1}} 
-              width={5.0} height={5.0} 
-              position={[-5.0, 0.0, -2.0]}
-              rotation={[0, 45, 0]} >
-        <ViroImage source={require('./res/button_base.jpg')} style={{flex: .5}} />
-        </ViroFlexView>
 
         <ViroARPlaneSelector>
             
@@ -95,6 +79,10 @@ export default class HelloWorldSceneAR extends Component {
 
                 <ViroBox position={[0.1, -.4, -.2]} scale={[.3, .3, .1]} materials={["black"]} animation={{name: "rotate", run: false, loop: false}} dragType="FixedToWorld" onDrag= {() => {}}
 
+                  viroTag="player"
+
+                  onCollision={this.onBoxCollide}
+
                   physicsBody={{
 
                   type:'Dynamic', mass:10,
@@ -115,6 +103,10 @@ export default class HelloWorldSceneAR extends Component {
 
                 <ViroBox position={[0.7, -.5, -.5]} scale={[.3, .3, .1]} materials={["white"]} animation={{name: "rotate", run: false, loop: false}}
 
+                  viroTag="Box"
+
+                  onCollision={this.onBoxCollide}
+
                   physicsBody={{
 
                   type:'Dynamic', mass:10,
@@ -129,10 +121,7 @@ export default class HelloWorldSceneAR extends Component {
 
                   friction: 0.5,
 
-                  viroTag: "Box",
-
-                  onCollision={collisionEffect}
-
+                  
                   }}
 
                 />

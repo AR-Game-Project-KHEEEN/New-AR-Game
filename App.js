@@ -8,6 +8,12 @@
  */
 
 import React, { Component } from 'react';
+
+import { ViroARSceneNavigator } from 'react-viro';
+
+import HelloWorldSceneAR from './js/HelloWorldSceneAR';
+
+
 import {
   Text,
   View,
@@ -15,100 +21,140 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-import {
-  ViroARSceneNavigator
-} from 'react-viro';
+import { StatusBar } from 'react-native';
 
-/*
- TODO: Insert your API key below
- */
-var sharedProps = {
-  apiKey:"API_KEY_HERE",
+const GAME_STATES = {
+
+  MENU: Symbol("Menu"),
+  IN_GAME: Symbol("InGame"),
 }
 
-// Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/HelloWorldSceneAR');
-
-var UNSET = "UNSET";
-var AR_NAVIGATOR_TYPE = "AR";
-
-// This determines which type of experience to launch in, or UNSET, if the user should
-// be presented with a choice of AR or VR. By default, we offer the user a choice.
-var defaultNavigatorType = UNSET;
 
 export default class ViroSample extends Component {
-  constructor() {
-    super();
 
-    this.state = {
-      navigatorType : defaultNavigatorType,
-      sharedProps : sharedProps
-    }
-    this._getExperienceSelector = this._getExperienceSelector.bind(this);
-    this._getARNavigator = this._getARNavigator.bind(this);
-    this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
-    this._exitViro = this._exitViro.bind(this);
+  state = {
+    score: 0,
+    gamestate: GAME_STATES.MENU
   }
 
-  // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
-  // if you are building a specific type of experience.
+  startGame = () => {
+
+    this.setState({
+
+      gamestate: GAME_STATES.IN_GAME
+      
+    })
+
+  }
+
+  backToMenu = () => {
+
+    this.setState({
+      score: 0,
+      gamestate: GAME_STATES.MENU
+    })
+  }
+
+  updateScore = () => {
+
+    this.setState({
+      score: this.state.score + 1
+    })
+  }
+
   render() {
-    if (this.state.navigatorType == UNSET) {
-      return this._getExperienceSelector();
-    } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
-      return this._getARNavigator();
+
+    switch (this.state.gamestate) {
+
+      case GAME_STATES.MENU:
+        return this.renderUI()
+      case GAME_STATES.IN_GAME:
+        return this.renderGameView()
     }
   }
 
-  // Presents the user with a choice of an AR or VR experience
-  _getExperienceSelector() {
-    return (
-      <View style={localStyles.outer} >
-        <View style={localStyles.inner} >
 
+  renderUI() {
+
+    return (
+      <View style={localStyles.outer}>
+        <View style={localStyles.inner}>
+          <Text style={localStyles.titleText}>Mölkkypeli</Text>
           <Text style={localStyles.titleText}>
-            Mölkkypeli
+            { this.state.gamestate === GAME_STATES.MENU ? "MAIN MENU" : "MÖLKKYPELI" }
           </Text>
+          { this.state.gameState === GAME_STATES.MENU && 
+            <Text style={localStyles.text}>
+                How to play:
+                1. Select a grey area in your environment
+                2. Enjoy the game
+            </Text>
+          }
 
           <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+            onPress={this.startGame}
             underlayColor={'#68a0ff'} >
             <Text style={localStyles.buttonText}>Start Game</Text>
           </TouchableHighlight>
 
         </View>
       </View>
-    );
-  }
+      );
+    }
 
-  // Returns the ViroARSceneNavigator which will start the AR experience
-  _getARNavigator() {
-    return (
-      <ViroARSceneNavigator {...this.state.sharedProps}
-        initialScene={{scene: InitialARScene}} />
-    );
-  }
 
-  // This function returns an anonymous/lambda function to be used
-  // by the experience selector buttons
-  _getExperienceButtonOnPress(navigatorType) {
-    return () => {
+    setGameReady = () => {
+
       this.setState({
-        navigatorType : navigatorType
+
+        planeSelected: true
+
       })
     }
-  }
 
-  // This function "exits" Viro by setting the navigatorType to UNSET.
-  _exitViro() {
-    this.setState({
-      navigatorType : UNSET
-    })
+
+  renderGameView() {
+
+    return(
+
+      <View style={localStyles.flex}>
+        <StatusBar hidden={true} />
+        <ViroARSceneNavigator
+            viroAppProps={{
+            level: this.state.level,
+            changeLevel: this.changeLevel,
+            updateScore: this.updateScore,
+            looseLive: this.looseLive,
+            levelGUIRender: this.renderLevelStartGUI
+            }}
+            initialScene={{scene: HelloWorldSceneAR }}
+        />
+
+        <View style={localStyles.topMenu}>
+          <TouchableHighlight style={localStyles.buttons}
+            underlayColor={'#68a0ff'}
+            onPress={this.backToMenu}>
+              <Text style={localStyles.buttonText}>
+                Back
+              </Text>
+          </TouchableHighlight>
+          <TouchableHighlight style={localStyles.buttons}
+            underlayColor={'#68a0ff'} >
+            <Text style={localStyles.buttonText}>
+              { this.state.score }
+            </Text>
+          </TouchableHighlight>
+
+        </View>
+
+      </View>
+    
+    );
   }
 }
 
 var localStyles = StyleSheet.create({
-  viroContainer :{
+  viroContainer : {
     flex : 1,
     backgroundColor: "black",
   },
@@ -159,7 +205,24 @@ var localStyles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
-  }
+  },
+  topMenu: {
+    width : '100%',
+    position : 'absolute',
+    top : 0,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  flex : {
+    flex : 1,
+  },
+  text: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 16
+  },
 });
+
 
 module.exports = ViroSample
