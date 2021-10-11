@@ -1,8 +1,18 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { AppRegistry } from 'react-native';
+import { TouchableHighlight } from 'react-native';
+import { Text } from 'react-native';
+import { View } from 'react-native';
+import { ViroButton, ViroScene } from 'react-viro';
+import { ViroFlexView } from 'react-viro';
+import { ViroImage } from 'react-viro';
+import { TouchableOpacity } from 'react-native';
+import { Image } from 'react-native';
 
 import {StyleSheet} from 'react-native';
+
 
 import {
   ViroARScene,
@@ -11,13 +21,13 @@ import {
   ViroBox,
   ViroQuad,
   ViroMaterials,
-  Viro3DObject,
   ViroAmbientLight,
   ViroSpotLight,
   ViroARPlaneSelector,
   ViroNode,
   ViroAnimations
 } from 'react-viro';
+
 
 export default class HelloWorldSceneAR extends Component {
 
@@ -31,8 +41,15 @@ export default class HelloWorldSceneAR extends Component {
 
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
-  }
 
+
+    }
+
+    collisionEffect = () => {
+
+      console.log("Törmäys onnistui");
+ 
+    }
 
   render() { 
 
@@ -42,8 +59,17 @@ export default class HelloWorldSceneAR extends Component {
         <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} /> 
         <ViroAmbientLight color={"#aaaaaa"} /> 
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} 
-          position={[0, 3, 1]} color="#ffffff" castsShadow={true} /> 
+          position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
+
+        <ViroFlexView style={{flexDirection: 'row', padding: .1}} 
+              width={5.0} height={5.0} 
+              position={[-5.0, 0.0, -2.0]}
+              rotation={[0, 45, 0]} >
+        <ViroImage source={require('./res/button_base.jpg')} style={{flex: .5}} />
+        </ViroFlexView>
+
         <ViroARPlaneSelector>
+            
             <ViroNode position={[0,-3,-2]}>
                 <ViroQuad
 
@@ -103,13 +129,17 @@ export default class HelloWorldSceneAR extends Component {
 
                   friction: 0.5,
 
+                  viroTag: "Box",
+
+                  onCollision={collisionEffect}
+
                   }}
 
                 />
 
               </ViroNode>
         </ViroARPlaneSelector>
-      </ViroARScene> 
+        </ViroARScene>
     ); 
   } 
 
@@ -140,6 +170,10 @@ ViroMaterials.createMaterials({
   },
   white: {
     diffuseTexture: require('./res/white.jpg')
+  },
+  button: {
+    diffuseTexture: require('./res/button_base.jpg')
+
   }
 });
 
@@ -161,5 +195,6 @@ ViroAnimations.registerAnimations({
     duration: 250, //.25 seconds
   },
 });
+
 
 module.exports = HelloWorldSceneAR;
