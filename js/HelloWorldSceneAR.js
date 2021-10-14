@@ -35,12 +35,17 @@ export default class HelloWorldSceneAR extends Component {
 
     }
 
-    onBoxCollide() {
 
-      render (
-      <ViroText text={"Törmäys onnistui"} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
-      );
-    }
+
+    collisionCalculate = () => {
+
+      this.props.arSceneNavigator.viroAppProps.updateScore()
+
+  }
+
+
+
+
 
   render() { 
 
@@ -77,17 +82,17 @@ export default class HelloWorldSceneAR extends Component {
 
                 />
 
-                <ViroBox position={[0.1, -.4, -.2]} scale={[.3, .3, .1]} materials={["black"]} animation={{name: "rotate", run: false, loop: false}} dragType="FixedToWorld" onDrag= {() => {}}
+                <ViroBox position={[0.1, -.4, -.2]} scale={[.3, .3, .1]} materials={["black"]} dragType="FixedToWorld" onDrag= {() => {}}
 
                   viroTag="player"
 
-                  onCollision={this.onBoxCollide}
+                  key="player"
 
                   physicsBody={{
 
                   type:'Dynamic', mass:10,
 
-                  shape:{type:'Box', params:[0.4,0.4,0.2]},
+                  shape:{type:'Box', params:[ .4, .4, .2 ]},
 
                   force:{value:[0,0,10]},
 
@@ -101,17 +106,19 @@ export default class HelloWorldSceneAR extends Component {
 
                 />
 
-                <ViroBox position={[0.7, -.5, -.5]} scale={[.3, .3, .1]} materials={["white"]} animation={{name: "rotate", run: false, loop: false}}
+                <ViroBox position={[0.7, -.5, -.5]} scale={[.3, .3, .1]} materials={["white"]}
 
-                  viroTag="Box"
+                  viroTag="box"
 
-                  onCollision={this.onBoxCollide}
+                  key="box"
+
+                  onCollision={this.collisionCalculate}
 
                   physicsBody={{
 
                   type:'Dynamic', mass:10,
 
-                  shape:{type:'Box', params:[0.4,0.4,0.2]},
+                  shape:{type:'Box', params:[ .4, .4, .2]},
 
                   force:{value:[0,0,10]},
 

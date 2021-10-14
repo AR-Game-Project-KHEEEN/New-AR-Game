@@ -83,7 +83,7 @@ export default class ViroSample extends Component {
           <Text style={localStyles.titleText}>
             { this.state.gamestate === GAME_STATES.MENU ? "MAIN MENU" : "MÖLKKYPELI" }
           </Text>
-          { this.state.gameState === GAME_STATES.MENU && 
+          { this.state.gamestate === GAME_STATES.MENU && 
             <Text style={localStyles.text}>
                 How to play:
                 1. Select a grey area in your environment
@@ -122,9 +122,7 @@ export default class ViroSample extends Component {
         <ViroARSceneNavigator
             viroAppProps={{
             level: this.state.level,
-            changeLevel: this.changeLevel,
             updateScore: this.updateScore,
-            looseLive: this.looseLive,
             levelGUIRender: this.renderLevelStartGUI
             }}
             initialScene={{scene: HelloWorldSceneAR }}
