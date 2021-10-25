@@ -23,8 +23,11 @@ import {
 
 import { StatusBar } from 'react-native';
 
-const GAME_STATES = {
 
+// Creating game states that define the current state of the game
+//   When the player is in the menu, the game state is "Menu"
+//   When the player is playing the actual game, the game state is "InGame"
+const GAME_STATES = {
   MENU: Symbol("Menu"),
   IN_GAME: Symbol("InGame"),
 }
@@ -32,40 +35,52 @@ const GAME_STATES = {
 
 export default class ViroSample extends Component {
 
+  // In the beginning of the game (when the player is in the menu),
+  // the current game state is "Menu", and the score variable is set to 0
   state = {
     score: 0,
     gamestate: GAME_STATES.MENU
   }
 
+  // Creating a function startGame, which 
+  // changes the game state into "InGame"
   startGame = () => {
-
     this.setState({
-
       gamestate: GAME_STATES.IN_GAME
-      
     })
-
   }
 
+  // Creating a function backToMenu, which is used
+  // when the player wants to return from the actual
+  // game into the main menu:
+  // ---> The game state is changed to "Menu",
+  //      and the score is set as 0
   backToMenu = () => {
-
     this.setState({
       score: 0,
       gamestate: GAME_STATES.MENU
     })
   }
 
+  // Creating a function updateScore, which increases
+  // the player's score during the actual gameplay:
+  // ----> the score variable's value is increased by 1
   updateScore = () => {
-
     this.setState({
       score: this.state.score + 1
     })
   }
 
+
+  // Creating a render function, which
+  // renders the right content based on
+  // the current game state:
+  // --> if the game state is "Menu", the content 
+  //          of renderUI is shown on the screen
+  // --> if the game state is "InGame", the content
+  //          of renderGameView is shown on the screen
   render() {
-
     switch (this.state.gamestate) {
-
       case GAME_STATES.MENU:
         return this.renderUI()
       case GAME_STATES.IN_GAME:
@@ -74,8 +89,15 @@ export default class ViroSample extends Component {
   }
 
 
+  // Creating a function renderUI, which is used to
+  // to show the main menu screen when starting the game:
+  // ---> The menu consists of different Text objects:
+  //         1. The name of the game ("Mölkkypeli" for now...)
+  //         2. The name of the current page (if game state is "Menu" -> Main Menu, otherwise MÖLKKYPELI)
+  //         3. A set of instructions for the game (shown only when the game state is "Menu")
+  // ---> The menu also consists of one TouchableHighlight object (screen button)
+  //         1. Start Game --> a button that activates the function startGame
   renderUI() {
-
     return (
       <View style={localStyles.outer}>
         <View style={localStyles.inner}>
@@ -90,44 +112,45 @@ export default class ViroSample extends Component {
                 2. Enjoy the game
             </Text>
           }
-
           <TouchableHighlight style={localStyles.buttons}
             onPress={this.startGame}
             underlayColor={'#68a0ff'} >
             <Text style={localStyles.buttonText}>Start Game</Text>
           </TouchableHighlight>
-
         </View>
       </View>
       );
     }
 
 
+    // Creating a function setGameReady, which
+    // does preparations for the upcoming game
     setGameReady = () => {
-
       this.setState({
-
         planeSelected: true
-
       })
     }
 
 
+    // Creating a function renderGameView, which shows
+    // the user interface screen during the gameplay:
+    //  ---> first, there is ViroARSceneNavigator object,
+    //       which enables the updateScore function and
+    //       uses the HelloWorldSceneAR file as the game's
+    //       current scene (it becomes the content of the game)
+    //  ---> next, there are two TouchableHighlight objects:
+    //       1. Back = button that activates backToMenu function
+    //       2. Score = text that shows the value of the score variable
   renderGameView() {
-
     return(
-
       <View style={localStyles.flex}>
         <StatusBar hidden={true} />
         <ViroARSceneNavigator
             viroAppProps={{
-            level: this.state.level,
             updateScore: this.updateScore,
-            levelGUIRender: this.renderLevelStartGUI
             }}
             initialScene={{scene: HelloWorldSceneAR }}
         />
-
         <View style={localStyles.topMenu}>
           <TouchableHighlight style={localStyles.buttons}
             underlayColor={'#68a0ff'}
@@ -142,15 +165,16 @@ export default class ViroSample extends Component {
               { this.state.score }
             </Text>
           </TouchableHighlight>
-
         </View>
-
       </View>
-    
     );
   }
 }
 
+
+// Style definitions of this file
+// --> Defines the look and alignment of
+//     different texts, buttons etc.
 var localStyles = StyleSheet.create({
   viroContainer : {
     flex : 1,
