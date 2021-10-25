@@ -14,6 +14,7 @@ import {
   ViroSpotLight,
   ViroARPlaneSelector,
   ViroNode,
+  ViroConstants
 } from 'react-viro';
 
 
