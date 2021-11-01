@@ -38,6 +38,15 @@ export default class HelloWorldSceneAR extends Component {
       this.props.arSceneNavigator.viroAppProps.updateScore()
   }
 
+ /*   ResetPlayer = () => {
+
+      this.setState ({
+        position: [0.1, -.4, -.2]
+      })
+
+    }
+*/
+
   // Creating the function _onInitialized, which
   // enables the AR's tracking mechanism and also
   // shows a text on the screen
@@ -51,6 +60,23 @@ export default class HelloWorldSceneAR extends Component {
     }
   }
 
+  boxContent = ({ 
+    type:'Dynamic', mass:5,
+    shape:{type:'Box', params:[ .5, 1, .5]},
+    force:{value:[0,0,10]},
+    torque:[0,0,0],
+    useGravity: true,
+    friction: 1,
+  })
+
+  playerContent = ({
+    type:'Dynamic', mass: 50,
+    shape:{type:'Box', params:[ .5, .5, .5 ]},
+    force:{value:[0,0,10]},
+    torque:[0,0,0],
+    useGravity: true,
+    friction: 1,
+  })
 
 // Creating a render function that shows the actual game objects
   render() { 
@@ -75,18 +101,13 @@ export default class HelloWorldSceneAR extends Component {
         
         {/* When the player has selected the game area, all the 
                objects inside the ViroNode are rendered: */}
-            <ViroNode position={[0,-3,-2]}>
+            <ViroNode position={[0, -3, -4]}>
             
             {/* CONTENTS OF VIRONODE: */}
 
             {/* 1. ViroQuad 
                 --> the "floor" of the game */}
-                <ViroQuad
-                  position={[0, -3, -2]}
-                  materials={["grid2"]}
-                  rotation={[-90, 0, 0]}
-                  height={8}
-                  width={8}
+                <ViroQuad position={[0, -3, -4]} materials={["grid2"]} rotation={[-90, 0, 0]} height={20} width={20}
                   physicsBody={{
                   type: "Static",
                   mass:0,
@@ -97,35 +118,21 @@ export default class HelloWorldSceneAR extends Component {
                 --> The player object that can be dragged and thrown in the environment
                 --> Has dynamic rigidbody and uses gravity in order to follow the physics
                 --> Also uses friction in order to control the sliding */}
-                <ViroBox position={[0.1, -.4, -.2]} scale={[.3, .3, .1]} materials={["black"]} dragType="FixedToWorld" onDrag= {() => {}}
+                <ViroBox position={[0.1, -.4, -.2]} scale={[.5, .5, .5]} materials={["black"]} dragType="FixedToWorld" onDrag= {() => {}}                  
                   viroTag="player"
                   key="player"
-                  physicsBody={{
-                  type:'Dynamic', mass:10,
-                  shape:{type:'Box', params:[ .4, .4, .2 ]},
-                  force:{value:[0,0,10]},
-                  torque:[0,0,0],
-                  useGravity: true,
-                  friction: 1,
-                  }}
+                  onCollision={this.ResetPlayer}
+                  physicsBody={this.playerContent}
                 />
 
             {/* 3. Target ViroBox
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <ViroBox position={[0.7, -.5, -.5]} scale={[.3, .3, .1]} materials={["white"]}
+                <ViroBox position={[4, -.4, -4]} scale={[.5, .5, .5]} materials={["white"]}
                   viroTag="box"
-                  key="box"
                   onCollision={this.collisionCalculate}
-                  physicsBody={{
-                  type:'Dynamic', mass:10,
-                  shape:{type:'Box', params:[ .4, .4, .2]},
-                  force:{value:[0,0,10]},
-                  torque:[0,0,0],
-                  useGravity: true,
-                  friction: 0.5,
-                  }}
+                  physicsBody={this.boxContent}
                 />
               </ViroNode>
         </ViroARPlaneSelector>
