@@ -14,7 +14,8 @@ import {
   ViroSpotLight,
   ViroARPlaneSelector,
   ViroNode,
-  ViroConstants
+  ViroConstants,
+  Viro3DObject
 } from 'react-viro';
 
 
@@ -118,7 +119,9 @@ export default class HelloWorldSceneAR extends Component {
                 --> The player object that can be dragged and thrown in the environment
                 --> Has dynamic rigidbody and uses gravity in order to follow the physics
                 --> Also uses friction in order to control the sliding */}
-                <ViroBox position={[0.1, -.4, -.2]} scale={[.5, .5, .5]} materials={["black"]} dragType="FixedToWorld" onDrag= {() => {}}                  
+                <Viro3DObject position={[0.1, -.4, -.2]} scale={[.3, .3, .3]} materials={["molkkyheitto"]} dragType="FixedToWorld" onDrag= {() => {}}                  
+                  source={require('./res/molkky/molkkyHeitto.obj')}
+                  type="OBJ"
                   viroTag="player"
                   key="player"
                   onCollision={this.ResetPlayer}
@@ -129,11 +132,28 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <ViroBox position={[4, -.4, -4]} scale={[.5, .5, .5]} materials={["white"]}
+                <Viro3DObject position={[4, -.4, -4]} scale={[.3, .3, .3]} materials={["molkky"]}
+                  source={require('./res/molkky/molkky.obj')}
+                  type="OBJ" 
                   viroTag="box"
                   onCollision={this.collisionCalculate}
                   physicsBody={this.boxContent}
                 />
+
+                <Viro3DObject position={[0.7, -.5, -.5]} scale={[.3, .3, .3]} materials={["molkky2"]}
+                  source={require('./res/molkky/molkky.obj')}
+                  type="OBJ" 
+                  onCollision={this.collisionCalculate}
+                  physicsBody={{
+                  type:'Dynamic', mass:10,
+                  shape:{type:'Box', params:[ .3, .3, .8 ]},
+                  force:{value:[0,0,10]},
+                  torque:[0,0,0],
+                  useGravity: true,
+                  friction: 5,
+                  }}
+                />
+
               </ViroNode>
         </ViroARPlaneSelector>
         </ViroARScene>
@@ -162,6 +182,15 @@ ViroMaterials.createMaterials({
   white: {
     diffuseTexture: require('./res/white.jpg')
   },
+  molkky: {
+    diffuseTexture: require('./res/molkky/1texture.png')
+  },
+  molkky2: {
+    diffuseTexture: require('./res/molkky/2texture.png')
+  },
+  molkkyheitto: {
+    diffuseTexture: require('./res/molkky/darkwood.jpg')
+  }
 });
 
 // Defining the material for the ViroQuad (the "floor")
