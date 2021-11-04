@@ -63,7 +63,7 @@ export default class HelloWorldSceneAR extends Component {
 
   boxContent = ({ 
     type:'Dynamic', mass:5,
-    shape:{type:'Box', params:[ .7, .7, .7]},
+    //shape:{type:'Box', params:[ .7, .7, .7]},
     force:{value:[0,0,10]},
     torque:[0,0,0],
     useGravity: true,
@@ -72,7 +72,7 @@ export default class HelloWorldSceneAR extends Component {
 
   playerContent = ({
     type:'Dynamic', mass: 50,
-    shape:{type:'Box', params:[ .7, .2, .2]},
+    //shape:{type:'Box', params:[ .7, .7, .7]},
     force:{value:[0,0,10]},
     torque:[0,0,0],
     useGravity: true,
@@ -133,16 +133,16 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[4, -.4, -4]} scale={[.7, .7, .7]} materials={["molkky"]}
-                  source={require('./res/molkky/molkky.obj')}
-                  type="OBJ" 
+                  source={require('./res/molkky/molkky.glb')}
+                  type="GLB" 
                   viroTag="box"
                   onCollision={this.collisionCalculate}
                   physicsBody={this.boxContent}
                 />
 
                 <Viro3DObject position={[0.7, -.5, -.5]} scale={[.7, .7, .7]} materials={["molkky2"]}
-                  source={require('./res/molkky/molkky.obj')}
-                  type="OBJ" 
+                  source={require('./res/molkky/molkky.glb')}
+                  type="GLB" 
                   onCollision={this.collisionCalculate}
                   physicsBody={{
                   type:'Dynamic', mass:10,
