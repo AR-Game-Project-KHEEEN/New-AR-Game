@@ -63,7 +63,7 @@ export default class HelloWorldSceneAR extends Component {
 
   boxContent = ({ 
     type:'Dynamic', mass:5,
-    shape:{type:'Box', params:[ .5, 1, .5]},
+    shape:{type:'Box', params:[ .7, .7, .7]},
     force:{value:[0,0,10]},
     torque:[0,0,0],
     useGravity: true,
@@ -72,7 +72,7 @@ export default class HelloWorldSceneAR extends Component {
 
   playerContent = ({
     type:'Dynamic', mass: 50,
-    shape:{type:'Box', params:[ .5, .5, .5 ]},
+    shape:{type:'Box', params:[ .7, .2, .2]},
     force:{value:[0,0,10]},
     torque:[0,0,0],
     useGravity: true,
@@ -119,9 +119,9 @@ export default class HelloWorldSceneAR extends Component {
                 --> The player object that can be dragged and thrown in the environment
                 --> Has dynamic rigidbody and uses gravity in order to follow the physics
                 --> Also uses friction in order to control the sliding */}
-                <Viro3DObject position={[0.1, -.4, -.2]} scale={[.3, .3, .3]} materials={["molkkyheitto"]} dragType="FixedToWorld" onDrag= {() => {}}                  
-                  source={require('./res/molkky/molkkyHeitto.obj')}
-                  type="OBJ"
+                <Viro3DObject position={[0.1, -.4, -.4]} scale={[.7, .7, .7]} materials={["molkkyheitto"]} dragType="FixedToWorld" onDrag= {() => {}}                  
+                  source={require('./res/molkky/molkkyHeitto.glb')}
+                  type="GLB"
                   viroTag="player"
                   key="player"
                   onCollision={this.ResetPlayer}
@@ -132,7 +132,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[4, -.4, -4]} scale={[.3, .3, .3]} materials={["molkky"]}
+                <Viro3DObject position={[4, -.4, -4]} scale={[.7, .7, .7]} materials={["molkky"]}
                   source={require('./res/molkky/molkky.obj')}
                   type="OBJ" 
                   viroTag="box"
@@ -140,7 +140,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
 
-                <Viro3DObject position={[0.7, -.5, -.5]} scale={[.3, .3, .3]} materials={["molkky2"]}
+                <Viro3DObject position={[0.7, -.5, -.5]} scale={[.7, .7, .7]} materials={["molkky2"]}
                   source={require('./res/molkky/molkky.obj')}
                   type="OBJ" 
                   onCollision={this.collisionCalculate}
