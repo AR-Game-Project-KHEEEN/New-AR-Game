@@ -131,7 +131,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[4, -2, -4]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky.glb')}
+                  source={require('./res/molkky/molkky1.glb')}
                   type="GLB" 
                   viroTag="Box1"
                   onCollision={this._onCollide1}
@@ -144,18 +144,11 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[4, -2, -.5]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky.glb')}
+                  source={require('./res/molkky/molkky2.glb')}
                   type="GLB" 
                   viroTag="Box2"
                   onCollision={this._onCollide2}
-                  physicsBody={{
-                  type:'Dynamic', mass:10,
-                  shape:{type:'Box', params:[ .3, .3, .8 ]},
-                  force:{value:[0,0,10]},
-                  torque:[0,0,0],
-                  useGravity: true,
-                  friction: 5,
-                  }}
+                  physicsBody={this.boxContent}
                 />
 
               <ViroParticleEmitter
