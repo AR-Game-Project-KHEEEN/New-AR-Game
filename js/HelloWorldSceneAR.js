@@ -36,8 +36,8 @@ export default class HelloWorldSceneAR extends Component {
 
     // OBJECT 1
     _onCollide1 = () => {
-        this.props.arSceneNavigator.viroAppProps.updateScore1()
-  }
+        this.props.arSceneNavigator.viroAppProps.updateScore1();
+}
 
   // OBJECT 2
     _onCollide2 = () => {
@@ -118,7 +118,7 @@ export default class HelloWorldSceneAR extends Component {
                 --> The player object that can be dragged and thrown in the environment
                 --> Has dynamic rigidbody and uses gravity in order to follow the physics
                 --> Also uses friction in order to control the sliding */}
-                <Viro3DObject position={[0.2, -.7, -.7]} scale={[.7, .7, .7]} materials={["molkkyheitto"]} dragType="FixedToWorld" onDrag= {() => {}}                  
+                <Viro3DObject position={[0.1, -2, -.1]} scale={[.7, .7, .7]} materials={["molkkyheitto"]} dragType="FixedToWorld" onDrag= {() => {}}                  
                   source={require('./res/molkky/molkkyHeitto.glb')}
                   type="GLB"
                   viroTag="Player"
@@ -139,11 +139,11 @@ export default class HelloWorldSceneAR extends Component {
                 />
 
            
-              {/* 3. Target 2
+              {/* 4. Target 2
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[0.7, -2, -.5]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[4, -2, -.5]} scale={[.7, .7, .7]}
                   source={require('./res/molkky/molkky.glb')}
                   type="GLB" 
                   viroTag="Box2"
@@ -157,14 +157,14 @@ export default class HelloWorldSceneAR extends Component {
                   friction: 5,
                   }}
                 />
-                
-                <ViroParticleEmitter
-                  position={[0, 4.5, 0]}
-                  duration={2000}
+
+              <ViroParticleEmitter
+                  position={[4, -2, -4]}
+                  duration={500}
                   visible={true}
                   delay={0}
                   run={true}
-                  loop={true}
+                  loop={false}
                   fixedToEmitter={true}
 
                   image={{
