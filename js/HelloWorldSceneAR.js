@@ -7,7 +7,6 @@ import {StyleSheet} from 'react-native';
 import {
   ViroARScene,
   ViroText,
-  ViroBox,
   ViroQuad,
   ViroMaterials,
   ViroAmbientLight,
@@ -15,9 +14,9 @@ import {
   ViroARPlaneSelector,
   ViroNode,
   ViroConstants,
-  Viro3DObject
+  Viro3DObject,
+  ViroParticleEmitter
 } from 'react-viro';
-
 
 export default class HelloWorldSceneAR extends Component {
 
@@ -76,6 +75,8 @@ export default class HelloWorldSceneAR extends Component {
     useGravity: true,
     friction: 1,
   })
+
+
 
 // Creating a render function that shows the actual game objects
   render() { 
@@ -156,12 +157,54 @@ export default class HelloWorldSceneAR extends Component {
                   friction: 5,
                   }}
                 />
-              
+                
+                <ViroParticleEmitter
+                  position={[0, 4.5, 0]}
+                  duration={2000}
+                  visible={true}
+                  delay={0}
+                  run={true}
+                  loop={true}
+                  fixedToEmitter={true}
+
+                  image={{
+                    source:require("./res/white.png"),                 
+                    height:0.1,
+                    width:0.1,
+                    bloomThreshold:0.0
+                  }}
+
+                  spawnBehavior={{
+                    particleLifetime:[1200,1200],
+                    emissionRatePerSecond:[0, 0], 
+                    emissionBurst: [
+                      {time:0, min:300, max:350, cycles:1}
+                    ],
+                    spawnVolume:{shape:"sphere", params:[0.15], spawnOnSurface:true},
+                    maxParticles:1000
+                  }}
+  
+                  particleAppearance={{
+                    opacity:{
+                      initialRange:[1.0, 1.0],
+                      factor:"time",
+                      interpolation:[
+                        {endValue:0.0, interval:[800,1200]}
+                      ]
+                    },  
+                  }}
+    
+                  particlePhysics={{
+                    velocity:{
+                    initialRange:[[-2,-.5,0], [2,-3.5,0]]}
+                  }}
+                />
+
               </ViroNode>
-        </ViroARPlaneSelector>
+          </ViroARPlaneSelector>
         </ViroARScene>
     ); 
-  } 
+  }
 }
 
 
