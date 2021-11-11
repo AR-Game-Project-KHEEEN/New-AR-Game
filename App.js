@@ -38,7 +38,7 @@ export default class ViroSample extends Component {
   // In the beginning of the game (when the player is in the menu),
   // the current game state is "Menu", and the score variable is set to -1
   state = {
-    score: -5,
+    score: -3,
     gamestate: GAME_STATES.MENU
   }
 
@@ -57,7 +57,7 @@ export default class ViroSample extends Component {
   //      and the score is set as -1
   backToMenu = () => {
     this.setState({
-      score: -5,
+      score: -3,
       gamestate: GAME_STATES.MENU
     })
   }

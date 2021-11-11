@@ -95,19 +95,16 @@ export default class HelloWorldSceneAR extends Component {
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]} 
           position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
         
-        {/* Before the player can play the game, they need to decide where
-            to put the objects of the game scene --> this is done with ViroARPlaneSelector */}
-        <ViroARPlaneSelector>
         
         {/* When the player has selected the game area, all the 
                objects inside the ViroNode are rendered: */}
-            <ViroNode position={[0, -3, -4]}>
+            <ViroNode position={[0, -3, -10]}>
             
             {/* CONTENTS OF VIRONODE: */}
 
             {/* 1. ViroQuad 
                 --> the "floor" of the game */}
-                <ViroQuad position={[0, -3, -4]} materials={["grid2"]} rotation={[-90, 0, 0]} height={20} width={20}
+                <ViroQuad position={[0, -3, -10]} materials={["grid2"]} rotation={[-90, 0, 0]} height={40} width={40}
                   physicsBody={{
                   type: "Static",
                   mass:0,
@@ -130,26 +127,122 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[4, -2, -4]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[-2, -2, -4]} scale={[.7, .7, .7]}
                   source={require('./res/molkky/molkky1.glb')}
                   type="GLB" 
                   viroTag="Box1"
                   onCollision={this._onCollide1}
                   physicsBody={this.boxContent}
                 />
-
            
               {/* 4. Target 2
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[4, -2, -.5]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[2, -2, -4]} scale={[.7, .7, .7]}
                   source={require('./res/molkky/molkky2.glb')}
                   type="GLB" 
                   viroTag="Box2"
                   onCollision={this._onCollide2}
                   physicsBody={this.boxContent}
                 />
+
+                {/* 5. Target 3
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[-4, -2, -6]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
+                {/* 6. Target 4
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[4, -2,  -6]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
+                {/* 7. Target 5
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[-6, -2, -8]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
+                {/* 8. Target 6
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[6, -2, -8]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
+                 {/* 9. Target 7
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[-4, -2, -10]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
+                {/* 10. Target 8
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[4, -2, -10]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
+                {/* 11. Target 9
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[-2, -2, -12]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
+                {/* 12. Target 10
+                 --> The target object that the player must hit with their player object
+                 --> Activates collisionCalculate when is hit by the player object (-> increases score)
+                 --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
+                <Viro3DObject position={[2, -2, -12]} scale={[.7, .7, .7]}
+                  source={require('./res/molkky/molkky2.glb')}
+                  type="GLB" 
+                  viroTag="Box2"
+                  onCollision={this._onCollide2}
+                  physicsBody={this.boxContent}
+                />
+
 
               <ViroParticleEmitter
                   position={[4, -2, -4]}
@@ -194,7 +287,7 @@ export default class HelloWorldSceneAR extends Component {
                 />
 
               </ViroNode>
-          </ViroARPlaneSelector>
+          
         </ViroARScene>
     ); 
   }
