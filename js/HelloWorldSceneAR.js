@@ -41,7 +41,7 @@ export default class HelloWorldSceneAR extends Component {
 
   // OBJECT 2
     _onCollide2 = () => {
-        this.props.arSceneNavigator.viroAppProps.updateScore2()
+        this.props.arSceneNavigator.viroAppProps.updateScore2();
 } 
 
   // OBJECT 3
@@ -51,7 +51,7 @@ export default class HelloWorldSceneAR extends Component {
 
   // OBJECT 4
     _onCollide4 = () => {
-        this.props.arSceneNavigator.viroAppProps.updateScore4()
+        this.props.arSceneNavigator.viroAppProps.updateScore4();
   } 
 
   // OBJECT 5
@@ -61,7 +61,7 @@ export default class HelloWorldSceneAR extends Component {
 
   // OBJECT 6
     _onCollide6 = () => {
-        this.props.arSceneNavigator.viroAppProps.updateScore6()
+        this.props.arSceneNavigator.viroAppProps.updateScore6();
   } 
 
   // OBJECT 7
@@ -71,7 +71,7 @@ export default class HelloWorldSceneAR extends Component {
 
   // OBJECT 8
     _onCollide8 = () => {
-        this.props.arSceneNavigator.viroAppProps.updateScore8()
+        this.props.arSceneNavigator.viroAppProps.updateScore8();
   } 
 
   // OBJECT 9
@@ -81,7 +81,7 @@ export default class HelloWorldSceneAR extends Component {
 
   // OBJECT 10
     _onCollide10 = () => {
-        this.props.arSceneNavigator.viroAppProps.updateScore10()
+        this.props.arSceneNavigator.viroAppProps.updateScore10();
   } 
 
 

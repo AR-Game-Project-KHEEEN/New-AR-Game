@@ -200,6 +200,14 @@ export default class ViroSample extends Component {
             viroAppProps={{
             updateScore1: this.updateScore1,
             updateScore2: this.updateScore2,
+            updateScore3: this.updateScore3,
+            updateScore4: this.updateScore4,
+            updateScore5: this.updateScore5,
+            updateScore6: this.updateScore6,
+            updateScore7: this.updateScore7,
+            updateScore8: this.updateScore8,
+            updateScore9: this.updateScore9,
+            updateScore10: this.updateScore10
             }}
             initialScene={{scene: HelloWorldSceneAR }}
         />
