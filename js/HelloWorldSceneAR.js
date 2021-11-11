@@ -44,6 +44,46 @@ export default class HelloWorldSceneAR extends Component {
         this.props.arSceneNavigator.viroAppProps.updateScore2()
 } 
 
+  // OBJECT 3
+    _onCollide3 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore3();
+  }
+
+  // OBJECT 4
+    _onCollide4 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore4()
+  } 
+
+  // OBJECT 5
+    _onCollide5 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore5();
+  }
+
+  // OBJECT 6
+    _onCollide6 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore6()
+  } 
+
+  // OBJECT 7
+    _onCollide7 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore7();
+  }
+
+  // OBJECT 8
+    _onCollide8 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore8()
+  } 
+
+  // OBJECT 9
+    _onCollide9 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore9();
+  }
+
+  // OBJECT 10
+    _onCollide10 = () => {
+        this.props.arSceneNavigator.viroAppProps.updateScore10()
+  } 
+
 
   // Creating the function _onInitialized, which
   // enables the AR's tracking mechanism and also
@@ -152,10 +192,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[-4, -2, -6]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky3.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box3"
+                  onCollision={this._onCollide3}
                   physicsBody={this.boxContent}
                 />
 
@@ -164,10 +204,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[4, -2,  -6]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky4.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box4"
+                  onCollision={this._onCollide4}
                   physicsBody={this.boxContent}
                 />
 
@@ -176,10 +216,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[-6, -2, -8]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky5.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box5"
+                  onCollision={this._onCollide5}
                   physicsBody={this.boxContent}
                 />
 
@@ -188,10 +228,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[6, -2, -8]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky6.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box6"
+                  onCollision={this._onCollide6}
                   physicsBody={this.boxContent}
                 />
 
@@ -200,10 +240,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[-4, -2, -10]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky7.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box7"
+                  onCollision={this._onCollide7}
                   physicsBody={this.boxContent}
                 />
 
@@ -212,10 +252,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[4, -2, -10]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky8.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box8"
+                  onCollision={this._onCollide8}
                   physicsBody={this.boxContent}
                 />
 
@@ -224,10 +264,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[-2, -2, -12]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky9.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box9"
+                  onCollision={this._onCollide9}
                   physicsBody={this.boxContent}
                 />
 
@@ -236,10 +276,10 @@ export default class HelloWorldSceneAR extends Component {
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
                 <Viro3DObject position={[2, -2, -12]} scale={[.7, .7, .7]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={require('./res/molkky/molkky10.glb')}
                   type="GLB" 
-                  viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  viroTag="Box10"
+                  onCollision={this._onCollide10}
                   physicsBody={this.boxContent}
                 />
 

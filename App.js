@@ -57,7 +57,7 @@ export default class ViroSample extends Component {
   //      and the score is set as -1
   backToMenu = () => {
     this.setState({
-      score: -3,
+      score: -55,
       gamestate: GAME_STATES.MENU
     })
   }
@@ -77,6 +77,50 @@ export default class ViroSample extends Component {
     })
   }
 
+  updateScore3 = () => {
+    this.setState({
+      score: this.state.score + 3
+    })
+  }
+
+  updateScore4 = () => {
+    this.setState({
+      score: this.state.score + 4
+    })
+  }
+  updateScore5 = () => {
+    this.setState({
+      score: this.state.score + 5
+    })
+  }
+
+  updateScore6 = () => {
+    this.setState({
+      score: this.state.score + 6
+    })
+  }
+  updateScore7 = () => {
+    this.setState({
+      score: this.state.score + 7
+    })
+  }
+
+  updateScore8 = () => {
+    this.setState({
+      score: this.state.score + 8
+    })
+  }
+  updateScore9 = () => {
+    this.setState({
+      score: this.state.score + 9
+    })
+  }
+
+  updateScore10 = () => {
+    this.setState({
+      score: this.state.score + 10
+    })
+  }
 
 
   // Creating a render function, which
