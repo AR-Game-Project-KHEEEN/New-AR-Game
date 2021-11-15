@@ -38,7 +38,7 @@ export default class ViroSample extends Component {
   // In the beginning of the game (when the player is in the menu),
   // the current game state is "Menu", and the score variable is set to -1
   state = {
-    score: -3,
+    score: -55,
     gamestate: GAME_STATES.MENU
   }
 
@@ -159,8 +159,7 @@ export default class ViroSample extends Component {
           { this.state.gamestate === GAME_STATES.MENU && 
             <Text style={localStyles.text}>
                 How to play:
-                1. Select a grey area in your environment
-                2. Enjoy the game
+                Try to hit all the blocks
             </Text>
           }
           <TouchableHighlight style={localStyles.buttons}
@@ -181,7 +180,6 @@ export default class ViroSample extends Component {
         planeSelected: true
       })
     }
-
 
     // Creating a function renderGameView, which shows
     // the user interface screen during the gameplay:
@@ -209,7 +207,7 @@ export default class ViroSample extends Component {
             updateScore9: this.updateScore9,
             updateScore10: this.updateScore10
             }}
-            initialScene={{scene: HelloWorldSceneAR }}
+            initialScene={{ scene: HelloWorldSceneAR }}
         />
         <View style={localStyles.topMenu}>
           <TouchableHighlight style={localStyles.buttons}
