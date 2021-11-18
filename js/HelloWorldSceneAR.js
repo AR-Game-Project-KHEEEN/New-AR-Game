@@ -17,6 +17,7 @@ import {
   ViroParticleEmitter
 } from 'react-viro';
 
+
 export default class HelloWorldSceneAR extends Component {
 
 
@@ -140,7 +141,7 @@ export default class HelloWorldSceneAR extends Component {
 
             {/* 1. ViroQuad 
                 --> the "floor" of the game */}
-                <ViroQuad position={[0, -2, -2]} materials={["grid2"]} rotation={[-90, 0, 0]} height={40} width={40}
+                <ViroQuad position={[0, -4, -2]} materials={["grid2"]} rotation={[-90, 0, 0]} height={40} width={40}
                   physicsBody={{
                   type: "Static",
                   mass:0,
@@ -248,19 +249,7 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide7}
                   physicsBody={this.boxContent}
                 />
-                  <ViroParticleEmitter 
-                    position={[-4, -2, -14]} 
-                    duration={500} 
-                    visible={true} 
-                    delay={0} 
-                    run={true} 
-                    loop={this.state.firework} 
-                    fixedToEmitter={true}
-                    image={this.image}
-                    spawnBehavior={this.spawnBehavior}
-                    particleAppearance={this.particleAppearance}
-                    particlePhysics={this.particlePhysics}
-                    />
+                  
 
                 {/* 10. Target 8
                  --> The target object that the player must hit with their player object
