@@ -78,13 +78,13 @@ export default class HelloWorldSceneAR extends Component {
   })
 
   particleContent = ({
-    image=({
+    image={
       source:require("./res/white.png"),                 
       height:0.1,
       width:0.1,
       bloomThreshold:0.0
-    }),
-    spawnBehavior=({
+    },
+    spawnBehavior={
       particleLifetime:[1200,1200],
       emissionRatePerSecond:[0, 0], 
       emissionBurst: [
@@ -92,8 +92,8 @@ export default class HelloWorldSceneAR extends Component {
       ],
       spawnVolume:{shape:"sphere", params:[0.15], spawnOnSurface:true},
       maxParticles:1000
-    }),
-    particleAppearance=({
+    },
+    particleAppearance={
       opacity:{
         initialRange:[1.0, 1.0],
         factor:"time",
@@ -101,11 +101,11 @@ export default class HelloWorldSceneAR extends Component {
           {endValue:0.0, interval:[800,1200]}
         ]
       },  
-    }),
-    particlePhysics=({
+    },
+    particlePhysics={
       velocity:{
       initialRange:[[-2,-.5,0], [2,-3.5,0]]}
-    }),
+    },
   })
 
 
