@@ -36,7 +36,7 @@ const GAME_STATES = {
 export default class ViroSample extends Component {
 
   // In the beginning of the game (when the player is in the menu),
-  // the current game state is "Menu", and the score variable is set to -1
+  // the current game state is "Menu", and the score variable is set to -55
   state = {
     score: -55,
     gamestate: GAME_STATES.MENU
@@ -54,7 +54,7 @@ export default class ViroSample extends Component {
   // when the player wants to return from the actual
   // game into the main menu:
   // ---> The game state is changed to "Menu",
-  //      and the score is set as -1
+  //      and the score is set as -55
   backToMenu = () => {
     this.setState({
       score: -55,
@@ -62,9 +62,11 @@ export default class ViroSample extends Component {
     })
   }
 
-  // Creating a function updateScore, which increases
+  // Creating multiple updateScore functions that increase
   // the player's score during the actual gameplay:
-  // ----> the score variable's value is increased by 1
+  // ----> the score variable's value is increased by a number
+  //       based on the target object's number (from 1 to 10)
+  
   updateScore1 = () => {
     this.setState({
       score: this.state.score + 1
