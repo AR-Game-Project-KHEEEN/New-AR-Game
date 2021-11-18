@@ -172,7 +172,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                 <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[-2, -2, -8]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -197,7 +197,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                  <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[2, -2, -8]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -222,7 +222,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                   <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[-4, -2, -10]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -240,7 +240,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[4, -2,  -10]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[4, -2, -10]} scale={[.7, .7, .7]}
                   source={require('./res/molkky/molkky4.glb')}
                   type="GLB" 
                   viroTag="Box4"
@@ -248,7 +248,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                   <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[4, -2, -10]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -274,7 +274,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                   <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[-6, -2, -12]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -300,7 +300,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                   <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[6, -2, -12]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -325,7 +325,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                   <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[-4, -2, -14]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -350,7 +350,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                   <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[4, -2, -14]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
@@ -401,7 +401,7 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
                   <ViroParticleEmitter 
-                    position={[-2, -2, -16]} 
+                    position={[2, -2, -16]} 
                     duration={500} 
                     visible={true} 
                     delay={0} 
