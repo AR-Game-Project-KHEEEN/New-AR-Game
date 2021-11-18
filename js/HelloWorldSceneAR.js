@@ -62,7 +62,7 @@ export default class HelloWorldSceneAR extends Component {
   }
 
   boxContent = ({ 
-    type:'Dynamic', mass:50,
+    type:'Dynamic', mass: 10,
     //shape:{type:'Box', params:[ .7, .7, .7]},
     force:{value:[0,0,10]},
     torque:[0,0,0],
@@ -72,7 +72,7 @@ export default class HelloWorldSceneAR extends Component {
 
   playerContent = ({
     type:'Dynamic', mass: 50,
-    //shape:{type:'Box', params:[ .7, .7, .7]},
+    shape:{type:'Box', params:[1, 1, 1]},
     force:{value:[0,0,10]},
     torque:[0,0,0],
     useGravity: true,
@@ -81,7 +81,10 @@ export default class HelloWorldSceneAR extends Component {
 
 
 // PARTICLE CONTENTS:
-
+// --> SOME OF THE PARTICLE EMITTER ATTRIBUTES IS PUT HERE
+//     IN ORDER TO REDUCE THE AMOUNT OF CODE ROWS
+//
+// IMAGE CONTAINS THE SOURCE OF THE PARTICLE
     image= ({
       source:require("./res/white.png"),                 
       height:0.1,
@@ -89,6 +92,7 @@ export default class HelloWorldSceneAR extends Component {
       bloomThreshold:0.0
     })
     
+// SPAWN BEHAVIOR DEFINES THE MOVEMENT OF PARTICLES
     spawnBehavior=({
       particleLifetime:[1200,1200],
       emissionRatePerSecond:[0, 0], 
@@ -99,16 +103,17 @@ export default class HelloWorldSceneAR extends Component {
       maxParticles:1000
     })
 
+// PARTICLE APPEARANCE DEFINES THE PRESENCE OF PARTICLES
     particleAppearance=({
       opacity:{
         initialRange:[1.0, 1.0],
-        factor:"time",
         interpolation:[
           {endValue:0.0, interval:[800,1200]}
         ]
       },  
     })
 
+// PARTICLE PHYSICS DEFINES THE PHYSICS OF THE PARTICLE 
     particlePhysics=({
       velocity:{
       initialRange:[[-2,-.5,0], [2,-3.5,0]]}
@@ -141,7 +146,7 @@ export default class HelloWorldSceneAR extends Component {
 
             {/* 1. ViroQuad 
                 --> the "floor" of the game */}
-                <ViroQuad position={[0, -4, -2]} materials={["grid2"]} rotation={[-90, 0, 0]} height={40} width={40}
+                <ViroQuad position={[0, -8, -2]} materials={["grid2"]} rotation={[-90, 0, 0]} height={40} width={40}
                   physicsBody={{
                   type: "Static",
                   mass:0,
@@ -152,12 +157,11 @@ export default class HelloWorldSceneAR extends Component {
                 --> The player object that can be dragged and thrown in the environment
                 --> Has dynamic rigidbody and uses gravity in order to follow the physics
                 --> Also uses friction in order to control the sliding */}
-                <Viro3DObject position={[0.1, -2, -2]} scale={[.7, .7, .7]} rotation={[0, -90, 0]} materials={["molkkyheitto"]} dragType="FixedToWorld" onDrag= {() => {}}                  
+                <Viro3DObject position={[0.1, -2, -2]} scale={[0.7, 0.7, 0.7]} rotation={[0, -90, 0]} materials={["molkkyheitto"]} dragType="FixedToWorld" onDrag= {() => {}}                  
                   source={require('./res/molkky/molkkyHeitto.glb')}
                   type="GLB"
                   viroTag="Player"
                   key="player"
-                  onCollision={this.onPlayerCollide}
                   physicsBody={this.playerContent}
                 />
 
@@ -165,7 +169,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[-2, -2, -8]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[-2, -2, -8]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky1.glb')}
                   type="GLB" 
                   viroTag="Box1"
@@ -177,7 +181,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[2, -2, -8]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[2, -2, -8]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky2.glb')}
                   type="GLB" 
                   viroTag="Box2"
@@ -190,7 +194,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[-4, -2, -10]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[-4, -2, -10]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky3.glb')}
                   type="GLB" 
                   viroTag="Box3"
@@ -203,7 +207,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[4, -2, -10]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[4, -2, -10]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky4.glb')}
                   type="GLB" 
                   viroTag="Box4"
@@ -216,7 +220,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[-6, -2, -12]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[-6, -2, -12]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky5.glb')}
                   type="GLB" 
                   viroTag="Box5"
@@ -229,7 +233,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[6, -2, -12]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[6, -2, -12]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky6.glb')}
                   type="GLB" 
                   viroTag="Box6"
@@ -242,7 +246,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[-4, -2, -14]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[-4, -2, -14]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky7.glb')}
                   type="GLB" 
                   viroTag="Box7"
@@ -255,7 +259,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[4, -2, -14]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[4, -2, -14]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky8.glb')}
                   type="GLB" 
                   viroTag="Box8"
@@ -267,7 +271,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[-2, -2, -16]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[-2, -2, -16]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky9.glb')}
                   type="GLB" 
                   viroTag="Box9"
@@ -280,7 +284,7 @@ export default class HelloWorldSceneAR extends Component {
                  --> The target object that the player must hit with their player object
                  --> Activates collisionCalculate when is hit by the player object (-> increases score)
                  --> Has dynamic rigidbody and uses gravity and the friction (like the player object) */}
-                <Viro3DObject position={[2, -2, -16]} scale={[.7, .7, .7]}
+                <Viro3DObject position={[2, -2, -16]} scale={[1, 1, 1]}
                   source={require('./res/molkky/molkky10.glb')}
                   type="GLB" 
                   viroTag="Box10"
@@ -288,6 +292,10 @@ export default class HelloWorldSceneAR extends Component {
                   physicsBody={this.boxContent}
                 />
 
+                {/* 13. Particle Emitter 
+                  --> Creates the Firework effect every time the target objects are hit
+                  --> Effect animation is launched inside Target objects' onCollision functions
+                */}
                   <ViroParticleEmitter 
                     position={[0, 2, -8]} 
                     duration={500} 
