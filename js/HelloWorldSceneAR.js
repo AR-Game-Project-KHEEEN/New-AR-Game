@@ -35,26 +35,16 @@ export default class HelloWorldSceneAR extends Component {
 
     // COLLIDE FUNCTIONS FOR EACH OBJECT:
     _onCollide1 = () => { this.props.arSceneNavigator.viroAppProps.updateScore1(); this.setState({firework: true});} 
-    _onCollide2 = () => { this.props.arSceneNavigator.viroAppProps.updateScore2(); this.setState({firework: false});} 
+    _onCollide2 = () => { this.props.arSceneNavigator.viroAppProps.updateScore2(); this.setState({firework: true});} 
     _onCollide3 = () => { this.props.arSceneNavigator.viroAppProps.updateScore3(); this.setState({firework: true});}
-    _onCollide4 = () => { this.props.arSceneNavigator.viroAppProps.updateScore4(); this.setState({firework: false});} 
+    _onCollide4 = () => { this.props.arSceneNavigator.viroAppProps.updateScore4(); this.setState({firework: true});} 
     _onCollide5 = () => { this.props.arSceneNavigator.viroAppProps.updateScore5(); this.setState({firework: true});}
-    _onCollide6 = () => { this.props.arSceneNavigator.viroAppProps.updateScore6(); this.setState({firework: false});} 
+    _onCollide6 = () => { this.props.arSceneNavigator.viroAppProps.updateScore6(); this.setState({firework: true});} 
     _onCollide7 = () => { this.props.arSceneNavigator.viroAppProps.updateScore7(); this.setState({firework: true});}
-    _onCollide8 = () => { this.props.arSceneNavigator.viroAppProps.updateScore8(); this.setState({firework: false});} 
+    _onCollide8 = () => { this.props.arSceneNavigator.viroAppProps.updateScore8(); this.setState({firework: true});} 
     _onCollide9 = () => { this.props.arSceneNavigator.viroAppProps.updateScore9(); this.setState({firework: true});}
-    _onCollide10 = () => { this.props.arSceneNavigator.viroAppProps.updateScore10(); this.setState({firework: false});}
+    _onCollide10 = () => { this.props.arSceneNavigator.viroAppProps.updateScore10(); this.setState({firework: true});}
 
-
-
-  /*  // OBJECT 1
-    onPlayerCollide(collidedTag, collidedPoint, collidedNormal) {
-      // collidedPoint - Point at which the collision had occured, in world coords.
-    // collidedNormal - The normal at the point of collision.
-    // collidedTag - The ViroTag of the collided object.
-    if (collidedTag == "Box1") {
-    }
-  } */
 
   // Creating the function _onInitialized, which
   // enables the AR's tracking mechanism and also
@@ -85,6 +75,37 @@ export default class HelloWorldSceneAR extends Component {
     torque:[0,0,0],
     useGravity: true,
     friction: 1,
+  })
+
+  particleContent = ({
+    image=({
+      source:require("./res/white.png"),                 
+      height:0.1,
+      width:0.1,
+      bloomThreshold:0.0
+    }),
+    spawnBehavior=({
+      particleLifetime:[1200,1200],
+      emissionRatePerSecond:[0, 0], 
+      emissionBurst: [
+        {time:0, min:300, max:350, cycles:1}
+      ],
+      spawnVolume:{shape:"sphere", params:[0.15], spawnOnSurface:true},
+      maxParticles:1000
+    }),
+    particleAppearance=({
+      opacity:{
+        initialRange:[1.0, 1.0],
+        factor:"time",
+        interpolation:[
+          {endValue:0.0, interval:[800,1200]}
+        ]
+      },  
+    }),
+    particlePhysics=({
+      velocity:{
+      initialRange:[[-2,-.5,0], [2,-3.5,0]]}
+    }),
   })
 
 
@@ -145,6 +166,7 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide1}
                   physicsBody={this.boxContent}
                 />
+                <ViroParticleEmitter position={[-2, -2, -8]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
            
               {/* 4. Target 2
                  --> The target object that the player must hit with their player object
@@ -157,6 +179,8 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide2}
                   physicsBody={this.boxContent}
                 />
+                 <ViroParticleEmitter position={[2, -2, -8]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
+
 
                 {/* 5. Target 3
                  --> The target object that the player must hit with their player object
@@ -169,6 +193,8 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide3}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[-4, -2, -10]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
+
 
                 {/* 6. Target 4
                  --> The target object that the player must hit with their player object
@@ -181,6 +207,8 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide4}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[4, -2, -10]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
+
 
                 {/* 7. Target 5
                  --> The target object that the player must hit with their player object
@@ -193,6 +221,8 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide5}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[-6, -2, -12]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
+
 
                 {/* 8. Target 6
                  --> The target object that the player must hit with their player object
@@ -205,6 +235,7 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide6}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[6, -2, -12]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
 
                  {/* 9. Target 7
                  --> The target object that the player must hit with their player object
@@ -217,6 +248,7 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide7}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[-4, -2, -14]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
 
                 {/* 10. Target 8
                  --> The target object that the player must hit with their player object
@@ -229,6 +261,7 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide8}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[4, -2, -14]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
 
                 {/* 11. Target 9
                  --> The target object that the player must hit with their player object
@@ -241,6 +274,8 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide9}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[-2, -2, -16]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
+
 
                 {/* 12. Target 10
                  --> The target object that the player must hit with their player object
@@ -253,44 +288,8 @@ export default class HelloWorldSceneAR extends Component {
                   onCollision={this._onCollide10}
                   physicsBody={this.boxContent}
                 />
+                  <ViroParticleEmitter position={[2, -2, -16]} duration={500} visible={true} delay={0} run={true} loop={this.state.firework} fixedToEmitter={true} particleContent={this.particleContent}/>
 
-              <ViroParticleEmitter
-                  position={[4, -2, -8]}
-                  duration={500}
-                  visible={true}
-                  delay={0}
-                  run={this.state.firework}
-                  loop={false}
-                  fixedToEmitter={true}
-                  image={{
-                    source:require("./res/white.png"),                 
-                    height:0.1,
-                    width:0.1,
-                    bloomThreshold:0.0
-                  }}
-                  spawnBehavior={{
-                    particleLifetime:[1200,1200],
-                    emissionRatePerSecond:[0, 0], 
-                    emissionBurst: [
-                      {time:0, min:300, max:350, cycles:1}
-                    ],
-                    spawnVolume:{shape:"sphere", params:[0.15], spawnOnSurface:true},
-                    maxParticles:1000
-                  }}
-                  particleAppearance={{
-                    opacity:{
-                      initialRange:[1.0, 1.0],
-                      factor:"time",
-                      interpolation:[
-                        {endValue:0.0, interval:[800,1200]}
-                      ]
-                    },  
-                  }}
-                  particlePhysics={{
-                    velocity:{
-                    initialRange:[[-2,-.5,0], [2,-3.5,0]]}
-                  }}
-                />
               </ViroNode>          
         </ViroARScene>
     ); 
