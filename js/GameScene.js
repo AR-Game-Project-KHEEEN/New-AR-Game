@@ -18,7 +18,7 @@ import {
 } from 'react-viro';
 
 
-export default class HelloWorldSceneAR extends Component {
+export default class GameScene extends Component {
 
 
 // Creating a constructor for the HelloWorldSceneAR object
@@ -38,17 +38,7 @@ export default class HelloWorldSceneAR extends Component {
     // Each function does the following things:
     //   ---> Calls different updateScore functions based on the object's number
     //   ---> Enables particleEmitter (Firework effect)
-    _onCollide1 = () => { this.props.arSceneNavigator.viroAppProps.updateScore1(); this.setState({firework: true});} 
-    _onCollide2 = () => { this.props.arSceneNavigator.viroAppProps.updateScore2(); this.setState({firework: true});} 
-    _onCollide3 = () => { this.props.arSceneNavigator.viroAppProps.updateScore3(); this.setState({firework: true});}
-    _onCollide4 = () => { this.props.arSceneNavigator.viroAppProps.updateScore4(); this.setState({firework: true});} 
-    _onCollide5 = () => { this.props.arSceneNavigator.viroAppProps.updateScore5(); this.setState({firework: true});}
-    _onCollide6 = () => { this.props.arSceneNavigator.viroAppProps.updateScore6(); this.setState({firework: true});} 
-    _onCollide7 = () => { this.props.arSceneNavigator.viroAppProps.updateScore7(); this.setState({firework: true});}
-    _onCollide8 = () => { this.props.arSceneNavigator.viroAppProps.updateScore8(); this.setState({firework: true});} 
-    _onCollide9 = () => { this.props.arSceneNavigator.viroAppProps.updateScore9(); this.setState({firework: true});}
-    _onCollide10 = () => { this.props.arSceneNavigator.viroAppProps.updateScore10(); this.setState({firework: true});}
-
+    _onCollide = (score) => { this.props.arSceneNavigator.viroAppProps.updateScore(score); this.setState({firework: true});} 
 
   // Creating the function _onInitialized, which
   // enables the AR's tracking mechanism and also
@@ -62,6 +52,19 @@ export default class HelloWorldSceneAR extends Component {
       // Handle loss of tracking
     }
   }
+
+  TargetModels = [
+    require("./res/molkky/molkky1.glb"),
+    require("./res/molkky/molkky2.glb"),
+    require("./res/molkky/molkky3.glb"),
+    require("./res/molkky/molkky4.glb"),
+    require("./res/molkky/molkky5.glb"),
+    require("./res/molkky/molkky6.glb"),
+    require("./res/molkky/molkky7.glb"),
+    require("./res/molkky/molkky8.glb"),
+    require("./res/molkky/molkky9.glb"),
+    require("./res/molkky/molkky10.glb"),
+  ]
 
   boxContent = ({ 
     type:'Dynamic', mass: 10,
@@ -179,76 +182,75 @@ export default class HelloWorldSceneAR extends Component {
                      when hit by the player object (-> increases score)
                  --> Each of them has dynamic rigidbody and uses gravity and the friction */}
                 <Viro3DObject position={[-2, -2, -8]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky1.glb')}
+                  source={this.TargetModels[0]}
                   type="GLB" 
                   viroTag="Box1"
-                  onCollision={this._onCollide1}
+                  onCollision={() => this._onCollide(1)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[2, -2, -8]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky2.glb')}
+                  source={this.TargetModels[1]}
                   type="GLB" 
                   viroTag="Box2"
-                  onCollision={this._onCollide2}
+                  onCollision={() => this._onCollide(2)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-4, -2, -10]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky3.glb')}
+                  source={this.TargetModels[2]}
                   type="GLB" 
                   viroTag="Box3"
-                  onCollision={this._onCollide3}
+                  onCollision={() => this._onCollide(3)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[4, -2, -10]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky4.glb')}
+                  source={this.TargetModels[3]}
                   type="GLB" 
                   viroTag="Box4"
-                  onCollision={this._onCollide4}
+                  onCollision={() => this._onCollide(4)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-6, -2, -12]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky5.glb')}
+                  source={this.TargetModels[4]}
                   type="GLB" 
                   viroTag="Box5"
-                  onCollision={this._onCollide5}
+                  onCollision={() => this._onCollide(5)}
                   physicsBody={this.boxContent}
                 />   
                 <Viro3DObject position={[6, -2, -12]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky6.glb')}
+                  source={this.TargetModels[5]}
                   type="GLB" 
                   viroTag="Box6"
-                  onCollision={this._onCollide6}
+                  onCollision={() => this._onCollide(6)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-4, -2, -14]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky7.glb')}
+                  source={this.TargetModels[6]}
                   type="GLB" 
                   viroTag="Box7"
-                  onCollision={this._onCollide7}
+                  onCollision={() => this._onCollide(7)}
                   physicsBody={this.boxContent}
                 /> 
                 <Viro3DObject position={[4, -2, -14]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky8.glb')}
+                  source={this.TargetModels[7]}
                   type="GLB" 
                   viroTag="Box8"
-                  onCollision={this._onCollide8}
+                  onCollision={() => this._onCollide(8)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-2, -2, -16]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky9.glb')}
+                  source={this.TargetModels[8]}
                   type="GLB" 
                   viroTag="Box9"
-                  onCollision={this._onCollide9}
+                  onCollision={() => this._onCollide(9)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[2, -2, -16]} scale={[1, 1, 1]}
-                  source={require('./res/molkky/molkky10.glb')}
+                  source={this.TargetModels[9]}
                   type="GLB" 
                   viroTag="Box10"
-                  onCollision={this._onCollide10}
+                  onCollision={() => this._onCollide(10)}
                   physicsBody={this.boxContent}
                 />
-
 
                 {/* Particle Emitter 
                   --> Creates the Firework effect every time the target objects are hit
@@ -314,4 +316,4 @@ ViroMaterials.createMaterials({
 });
 
 
-module.exports = HelloWorldSceneAR;
+module.exports = GameScene;

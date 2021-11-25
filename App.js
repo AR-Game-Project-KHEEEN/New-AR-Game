@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 
 import { ViroARSceneNavigator } from 'react-viro';
 
-import HelloWorldSceneAR from './js/HelloWorldSceneAR';
+import GameScene from './js/GameScene';
 
 
 import {
@@ -33,7 +33,7 @@ const GAME_STATES = {
 }
 
 
-export default class ViroSample extends Component {
+export default class App extends Component {
 
   // In the beginning of the game (when the player is in the menu),
   // the current game state is "Menu", and the score variable is set to -55
@@ -67,60 +67,9 @@ export default class ViroSample extends Component {
   // ----> the score variable's value is increased by a number
   //       based on the target object's number (from 1 to 10)
   
-  updateScore1 = () => {
+  updateScore = (score) => {
     this.setState({
-      score: this.state.score + 1
-    })
-  }
-
-  updateScore2 = () => {
-    this.setState({
-      score: this.state.score + 2
-    })
-  }
-
-  updateScore3 = () => {
-    this.setState({
-      score: this.state.score + 3
-    })
-  }
-
-  updateScore4 = () => {
-    this.setState({
-      score: this.state.score + 4
-    })
-  }
-  updateScore5 = () => {
-    this.setState({
-      score: this.state.score + 5
-    })
-  }
-
-  updateScore6 = () => {
-    this.setState({
-      score: this.state.score + 6
-    })
-  }
-  updateScore7 = () => {
-    this.setState({
-      score: this.state.score + 7
-    })
-  }
-
-  updateScore8 = () => {
-    this.setState({
-      score: this.state.score + 8
-    })
-  }
-  updateScore9 = () => {
-    this.setState({
-      score: this.state.score + 9
-    })
-  }
-
-  updateScore10 = () => {
-    this.setState({
-      score: this.state.score + 10
+      score: this.state.score + score
     })
   }
 
@@ -187,7 +136,7 @@ export default class ViroSample extends Component {
     // the user interface screen during the gameplay:
     //  ---> first, there is ViroARSceneNavigator object,
     //       which enables the updateScore function and
-    //       uses the HelloWorldSceneAR file as the game's
+    //       uses the GameScene file as the game's
     //       current scene (it becomes the content of the game)
     //  ---> next, there are two TouchableHighlight objects:
     //       1. Back = button that activates backToMenu function
@@ -198,18 +147,9 @@ export default class ViroSample extends Component {
         <StatusBar hidden={true} />
         <ViroARSceneNavigator
             viroAppProps={{
-            updateScore1: this.updateScore1,
-            updateScore2: this.updateScore2,
-            updateScore3: this.updateScore3,
-            updateScore4: this.updateScore4,
-            updateScore5: this.updateScore5,
-            updateScore6: this.updateScore6,
-            updateScore7: this.updateScore7,
-            updateScore8: this.updateScore8,
-            updateScore9: this.updateScore9,
-            updateScore10: this.updateScore10
+            updateScore: this.updateScore,
             }}
-            initialScene={{ scene: HelloWorldSceneAR }}
+            initialScene={{ scene: GameScene }}
         />
         <View style={localStyles.topMenu}>
           <TouchableHighlight style={localStyles.buttons}
@@ -307,4 +247,4 @@ var localStyles = StyleSheet.create({
 });
 
 
-module.exports = ViroSample
+module.exports = App
