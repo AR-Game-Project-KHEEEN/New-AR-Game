@@ -8,6 +8,7 @@ import {
   ViroARScene,
   ViroText,
   ViroQuad,
+  ViroBox,
   ViroMaterials,
   ViroAmbientLight,
   ViroSpotLight,
@@ -28,7 +29,8 @@ export default class GameScene extends Component {
     // (The text below appears right after the actual gameplay starts)
     this.state = {
       text : "Initializing AR...",
-      firework : false
+      firework : false,
+      position: [0.1, -2, -2],
     };
     // Activating onInialized (Look at the rows 53-64)
     this._onInitialized = this._onInitialized.bind(this);
@@ -39,6 +41,15 @@ export default class GameScene extends Component {
     //   ---> Calls different updateScore functions based on the object's number
     //   ---> Enables particleEmitter (Firework effect)
     _onCollide = (score) => { this.props.arSceneNavigator.viroAppProps.updateScore(score); this.setState({firework: true});} 
+
+
+    // COLLIDE FUNCTIONS FOR PLAYER OBJECT (WHEN COLLIDING WITH DEADZONES/WALLS)
+    _playerCollide(collidedTag){
+      if (collidedTag == "Deadzone") {
+       this.setState({position: [0.1, -2, -2]});
+        console.log(collidedTag);
+      }
+    }
 
   // Creating the function _onInitialized, which
   // enables the AR's tracking mechanism and also
@@ -53,19 +64,6 @@ export default class GameScene extends Component {
     }
   }
 
-  TargetModels = [
-    require("./res/molkky/molkky1.glb"),
-    require("./res/molkky/molkky2.glb"),
-    require("./res/molkky/molkky3.glb"),
-    require("./res/molkky/molkky4.glb"),
-    require("./res/molkky/molkky5.glb"),
-    require("./res/molkky/molkky6.glb"),
-    require("./res/molkky/molkky7.glb"),
-    require("./res/molkky/molkky8.glb"),
-    require("./res/molkky/molkky9.glb"),
-    require("./res/molkky/molkky10.glb"),
-  ]
-
   boxContent = ({ 
     type:'Dynamic', mass: 10,
     //shape:{type:'Box', params:[ .7, .7, .7]},
@@ -78,10 +76,10 @@ export default class GameScene extends Component {
   playerContent = ({
     type:'Dynamic', mass: 50,
     shape:{type:'Box', params:[1, 1, 1]},
-    force:{value:[0,0,10]},
+    force:{value:[0,1,3]},
     torque:[0,0,0],
     useGravity: true,
-    friction: 1,
+    friction: 3,
   })
 
 
@@ -157,13 +155,62 @@ export default class GameScene extends Component {
                   mass:0,
                   }}
                 />
+
+                {/* ViroQuad 
+                --> the "deadzone" of the game */}
+                <ViroQuad position={[0, -20, -2]} rotation={[-90, 0, 0]} height={120} width={120}
+                  viroTag="Deadzone"
+                  physicsBody={{
+                  type: "Static",
+                  mass:0,
+                  }}
+                />
+
+               {/* ViroQuad 
+                --> the "front wall" of the game */}
+                <ViroQuad position={[0, -8, -24]} rotation={[0, 0, 0]} height={200} width={120}
+                  viroTag="Deadzone"
+                  physicsBody={{
+                  type: "Static",
+                  mass:0,
+                  }}
+                /> 
+
+                {/* ViroQuad 
+                --> the "left side wall" of the game */}
+                <ViroQuad position={[-20, -8, -24]} rotation={[0, 90, 0]} height={200} width={120}
+                  viroTag="Deadzone"
+                  physicsBody={{
+                  type: "Static",
+                  mass:0,
+                  }}
+                />
                 
+                {/* ViroQuad 
+                --> the "right side wall" of the game */}
+                <ViroQuad position={[20, -8, -24]} rotation={[0, -90, 0]} height={200} width={120}
+                  viroTag="Deadzone"
+                  physicsBody={{
+                  type: "Static",
+                  mass:0,
+                  }}
+                />
+
+                {/* ViroQuad 
+                --> the "back wall" of the game */}
+                <ViroQuad position={[0, -8, 20]} rotation={[-180, 0, 0]} height={200} width={120}
+                   physicsBody={{
+                    type: "Static",
+                    mass:0,
+                    }}
+                />
+           
             {/* Player's ViroBox 
                 --> The player object that can be dragged and thrown in the environment
                 --> Has dynamic rigidbody and uses gravity in order to follow the physics
                 --> Also uses friction in order to control the sliding */}
                 <Viro3DObject 
-                  position={[0.1, -2, -2]} 
+                  position={this.position} 
                   scale={[0.7, 0.7, 0.7]} 
                   rotation={[0, -90, 0]} 
                   materials={["molkkyheitto"]} 
@@ -173,6 +220,7 @@ export default class GameScene extends Component {
                   type="GLB"
                   viroTag="Player"
                   key="player"
+                  onCollision={this._playerCollide}
                   physicsBody={this.playerContent}
                 />
 
@@ -182,70 +230,70 @@ export default class GameScene extends Component {
                      when hit by the player object (-> increases score)
                  --> Each of them has dynamic rigidbody and uses gravity and the friction */}
                 <Viro3DObject position={[-2, -2, -8]} scale={[1, 1, 1]}
-                  source={this.TargetModels[0]}
+                  source={require('./res/molkky/molkky1.glb')}
                   type="GLB" 
                   viroTag="Box1"
                   onCollision={() => this._onCollide(1)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[2, -2, -8]} scale={[1, 1, 1]}
-                  source={this.TargetModels[1]}
+                  source={require('./res/molkky/molkky2.glb')}
                   type="GLB" 
                   viroTag="Box2"
                   onCollision={() => this._onCollide(2)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-4, -2, -10]} scale={[1, 1, 1]}
-                  source={this.TargetModels[2]}
+                  source={require('./res/molkky/molkky3.glb')}
                   type="GLB" 
                   viroTag="Box3"
                   onCollision={() => this._onCollide(3)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[4, -2, -10]} scale={[1, 1, 1]}
-                  source={this.TargetModels[3]}
+                  source={require('./res/molkky/molkky4.glb')}
                   type="GLB" 
                   viroTag="Box4"
                   onCollision={() => this._onCollide(4)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-6, -2, -12]} scale={[1, 1, 1]}
-                  source={this.TargetModels[4]}
+                  source={require('./res/molkky/molkky5.glb')}
                   type="GLB" 
                   viroTag="Box5"
                   onCollision={() => this._onCollide(5)}
                   physicsBody={this.boxContent}
                 />   
                 <Viro3DObject position={[6, -2, -12]} scale={[1, 1, 1]}
-                  source={this.TargetModels[5]}
+                  source={require('./res/molkky/molkky6.glb')}
                   type="GLB" 
                   viroTag="Box6"
                   onCollision={() => this._onCollide(6)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-4, -2, -14]} scale={[1, 1, 1]}
-                  source={this.TargetModels[6]}
+                  source={require('./res/molkky/molkky7.glb')}
                   type="GLB" 
                   viroTag="Box7"
                   onCollision={() => this._onCollide(7)}
                   physicsBody={this.boxContent}
                 /> 
                 <Viro3DObject position={[4, -2, -14]} scale={[1, 1, 1]}
-                  source={this.TargetModels[7]}
+                  source={require('./res/molkky/molkky8.glb')}
                   type="GLB" 
                   viroTag="Box8"
                   onCollision={() => this._onCollide(8)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[-2, -2, -16]} scale={[1, 1, 1]}
-                  source={this.TargetModels[8]}
+                  source={require('./res/molkky/molkky9.glb')}
                   type="GLB" 
                   viroTag="Box9"
                   onCollision={() => this._onCollide(9)}
                   physicsBody={this.boxContent}
                 />
                 <Viro3DObject position={[2, -2, -16]} scale={[1, 1, 1]}
-                  source={this.TargetModels[9]}
+                  source={require('./res/molkky/molkky10.glb')}
                   type="GLB" 
                   viroTag="Box10"
                   onCollision={() => this._onCollide(10)}
