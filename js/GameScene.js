@@ -30,7 +30,6 @@ export default class GameScene extends Component {
     this.state = {
       text : "Initializing AR...",
       firework : false,
-      position: [0.1, -2, -2],
     };
     // Activating onInialized (Look at the rows 53-64)
     this._onInitialized = this._onInitialized.bind(this);
@@ -44,11 +43,11 @@ export default class GameScene extends Component {
 
 
     // COLLIDE FUNCTIONS FOR PLAYER OBJECT (WHEN COLLIDING WITH DEADZONES/WALLS)
-    _playerCollide(collidedTag){
-      if (collidedTag == "Deadzone") {
-       this.setState({position: [0.1, -2, -2]});
-        console.log(collidedTag);
-      }
+    _playerCollide() {
+
+      //  this.setState({position: [0.1, -2, -2]});
+        console.log("It works");
+
     }
 
   // Creating the function _onInitialized, which
@@ -158,7 +157,8 @@ export default class GameScene extends Component {
 
                 {/* ViroQuad 
                 --> the "deadzone" of the game */}
-                <ViroQuad position={[0, -20, -2]} rotation={[-90, 0, 0]} height={120} width={120}
+                <ViroQuad position={[0, -20, -2]} materials={["transparent"]} rotation={[-90, 0, 0]} height={120} width={120}
+                  onCollision={this._playerCollide}
                   viroTag="Deadzone"
                   physicsBody={{
                   type: "Static",
@@ -168,7 +168,8 @@ export default class GameScene extends Component {
 
                {/* ViroQuad 
                 --> the "front wall" of the game */}
-                <ViroQuad position={[0, -8, -24]} rotation={[0, 0, 0]} height={200} width={120}
+                <ViroQuad position={[0, -8, -20]}  materials={["transparent"]} rotation={[0, 0, 0]} height={200} width={120}
+                  onCollision={this._playerCollide}
                   viroTag="Deadzone"
                   physicsBody={{
                   type: "Static",
@@ -178,7 +179,8 @@ export default class GameScene extends Component {
 
                 {/* ViroQuad 
                 --> the "left side wall" of the game */}
-                <ViroQuad position={[-20, -8, -24]} rotation={[0, 90, 0]} height={200} width={120}
+                <ViroQuad position={[-18, -8, -24]} materials={["transparent"]} rotation={[0, 90, 0]} height={200} width={120}
+                  onCollision={this._playerCollide}
                   viroTag="Deadzone"
                   physicsBody={{
                   type: "Static",
@@ -188,7 +190,8 @@ export default class GameScene extends Component {
                 
                 {/* ViroQuad 
                 --> the "right side wall" of the game */}
-                <ViroQuad position={[20, -8, -24]} rotation={[0, -90, 0]} height={200} width={120}
+                <ViroQuad position={[18, -8, -24]} materials={["transparent"]} rotation={[0, -90, 0]} height={200} width={120}
+                  onCollision={this._playerCollide}
                   viroTag="Deadzone"
                   physicsBody={{
                   type: "Static",
@@ -198,7 +201,8 @@ export default class GameScene extends Component {
 
                 {/* ViroQuad 
                 --> the "back wall" of the game */}
-                <ViroQuad position={[0, -8, 20]} rotation={[-180, 0, 0]} height={200} width={120}
+                <ViroQuad position={[0, -8, 15]} materials={["transparent"]} rotation={[-180, 0, 0]} height={200} width={120}
+                  onCollision={this._playerCollide}
                    physicsBody={{
                     type: "Static",
                     mass:0,
@@ -210,7 +214,7 @@ export default class GameScene extends Component {
                 --> Has dynamic rigidbody and uses gravity in order to follow the physics
                 --> Also uses friction in order to control the sliding */}
                 <Viro3DObject 
-                  position={this.position} 
+                  position={[0.1, -2, -2]} 
                   scale={[0.7, 0.7, 0.7]} 
                   rotation={[0, -90, 0]} 
                   materials={["molkkyheitto"]} 
@@ -220,7 +224,6 @@ export default class GameScene extends Component {
                   type="GLB"
                   viroTag="Player"
                   key="player"
-                  onCollision={this._playerCollide}
                   physicsBody={this.playerContent}
                 />
 
@@ -361,6 +364,9 @@ ViroMaterials.createMaterials({
   grid2: {
     diffuseTexture: require('./res/test-grid.png'),
   },
+  transparent: {
+    diffuseTexture: require('./res/transparent_img.png')
+  }
 });
 
 
