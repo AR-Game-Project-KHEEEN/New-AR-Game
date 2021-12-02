@@ -103,7 +103,7 @@ export default class App extends Component {
     return (
       <View style={localStyles.outer}>
         <View style={localStyles.inner}>
-          <Text style={localStyles.titleText}>Mölkkypeli</Text>
+          <Text style={localStyles.titleText}>AR Block Throwing Game</Text>
           <Text style={localStyles.titleText}>
             { this.state.gamestate === GAME_STATES.MENU ? "MAIN MENU" : "MÖLKKYPELI" }
           </Text>
