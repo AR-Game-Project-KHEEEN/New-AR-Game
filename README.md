@@ -129,11 +129,11 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm start
   ```
-  Connect your phone to the same Wifi with your PC
-  Start the ViroMedia in your phone
-  Choose </> Enter Testbed in the menu from top left corner
-  Enter your computers IPv4-address
-  Press Go
+  Connect your phone to the same Wifi with your PC</br>
+  Start the ViroMedia in your phone</br>
+  Choose </> Enter Testbed in the menu from top left corner</br>
+  Enter your computers IPv4-address</br>
+  Press Go</br>
 
 Known issues in installation:
 
@@ -144,10 +144,10 @@ If you get this error:
     <img src="js/res/errorInstalling.png" alt="error">
 </a>
 
-node_modules/metro-config/src/defaults/blacklist.js
-Change row 14 in 
-  var sharedBlackList
-  to
+node_modules/metro-config/src/defaults/blacklist.js</br> 
+Change row 14 in</br></br>
+  var sharedBlackList</br> 
+  to</br></br>
   var sharedBlacklist = [   
 
   /node_modules[\/\\]react[\/\\]dist[\/\\].*/, 
@@ -169,7 +169,9 @@ After that restart the program with npm start
 Installation Issue #2:
 If you get this error:
 
-error: Error: Unable to resolve module fbjs/lib/invariant from C:\ViroSample\node_modules\react-viro\components\Material\ViroMaterials.js: fbjs/lib/invariant could not be found within the project or in these directories: 
+Error: Unable to resolve module fbjs/lib/invariant from</br>
+C:\ViroSample\node_modules\react-viro\components\Material\ViroMaterials.js: fbjs/lib/nvariant</br> 
+could not be found within the project or in these directories: 
 
   node_modules 
 
@@ -182,7 +184,8 @@ You need to install fbjs
 
 After that you might get this error:
 
-error: Error: Unable to resolve module create-react-class from C:\ViroSample\node_modules\react-viro\components\ViroMaterialVideo.js: create-react-class could not be found within the project or in these directories: 
+Error: Unable to resolve module create-react-class from</br>
+C:\ViroSample\node_modules\react-viro\components\ViroMaterialVideo.js:</br> create-react-class could not be found within the project or in these directories: </br>
 
   node_modules 
 
