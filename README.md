@@ -22,7 +22,7 @@ This is a new repository of a group project for the course "Software Project II"
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/AR-Game-Project-KHEEEN/New-AR-Game/blob/master/js/res/logo.JPG">
+  <a href="https://github.com/AR-Game-Project-KHEEEN/New-AR-Game">
     <img src="logo.JPG" alt="Logo" width="80" height="80">
   </a>
 
