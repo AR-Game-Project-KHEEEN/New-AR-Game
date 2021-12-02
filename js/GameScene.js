@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
 
-
 import {
   ViroARScene,
   ViroText,
@@ -17,9 +16,7 @@ import {
   ViroParticleEmitter
 } from 'react-viro';
 
-
 export default class GameScene extends Component {
-
 
 // Creating a constructor for the HelloWorldSceneAR object
   constructor() {
@@ -39,7 +36,6 @@ export default class GameScene extends Component {
     //   ---> Calls different updateScore functions based on the object's number
     //   ---> Enables particleEmitter (Firework effect)
     _onCollide = (score) => { this.props.arSceneNavigator.viroAppProps.updateScore(score); this.setState({firework: true});} 
-
 
     // COLLIDE FUNCTIONS FOR PLAYER OBJECT (WHEN COLLIDING WITH DEADZONES/WALLS)
     _playerCollide() {
@@ -80,7 +76,6 @@ export default class GameScene extends Component {
     friction: 3,
   })
 
-
 // PARTICLE CONTENTS:
 // --> SOME OF THE PARTICLE EMITTER ATTRIBUTES IS PUT HERE
 //     IN ORDER TO REDUCE THE AMOUNT OF CODE ROWS
@@ -119,7 +114,6 @@ export default class GameScene extends Component {
       velocity:{
       initialRange:[[-2,-.5,0], [2,-3.5,0]]}
     })
-
 
 // Creating a render function that shows the actual game objects
   render() { 
@@ -326,7 +320,6 @@ export default class GameScene extends Component {
   }
 }
 
-
 // Defining the style of the file
 var styles = StyleSheet.create({
   helloWorldTextStyle: {
@@ -367,6 +360,5 @@ ViroMaterials.createMaterials({
     diffuseTexture: require('./res/transparent_img.png')
   }
 });
-
 
 module.exports = GameScene;
