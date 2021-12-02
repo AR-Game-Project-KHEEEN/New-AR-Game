@@ -260,7 +260,6 @@ If you get the following error:
 Double check that your phone and computer are in the same wifi.
 <br/>
 <br/>
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
