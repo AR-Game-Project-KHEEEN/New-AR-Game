@@ -120,7 +120,6 @@ export default class App extends Component {
       );
     }
 
-
     // Creating a function setGameReady, which
     // does preparations for the upcoming game
     setGameReady = () => {
