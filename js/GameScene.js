@@ -8,7 +8,6 @@ import {
   ViroARScene,
   ViroText,
   ViroQuad,
-  ViroBox,
   ViroMaterials,
   ViroAmbientLight,
   ViroSpotLight,
