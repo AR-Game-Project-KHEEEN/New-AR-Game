@@ -133,7 +133,7 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm start
   ```
-  Connect your phone to the same Wifi with your PC</br>
+  Connect your phone to the same WiFi with your PC</br>
   Start the ViroMedia in your phone</br>
   Choose </> Enter Testbed in the menu from top left corner</br>
   Enter your computers IPv4-address</br>
