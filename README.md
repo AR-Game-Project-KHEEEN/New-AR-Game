@@ -23,7 +23,7 @@ This is a new repository of a group project for the course "Software Project II"
 <br />
 <div align="center">
   <a href="https://github.com/AR-Game-Project-KHEEEN/New-AR-Game">
-    <img src="logo.JPG" alt="Logo" width="80" height="80">
+    <img src="blob/master/res/logo.JPG" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">AR Block Throwing Game</h3>
