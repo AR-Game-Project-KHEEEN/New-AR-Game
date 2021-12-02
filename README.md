@@ -26,11 +26,12 @@ This is a new repository of a group project for the course "Software Project II"
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">AR Block Throwing Game</h3>
 
   <p align="center">
-    project_description
-    <br />
+    AR Game Project by AR-Game-Project-KHEEEN <br/>
+    A Student Group Project of Haaga-Helia University of Applied Sciences <br/>
+    Made with Viro React <br/>
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
     <br />
