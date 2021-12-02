@@ -44,7 +44,7 @@ This is a repository of a group project for the course "Software Project II"
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#how-to-play">Built With</a></li>
+        <li><a href="#how-to-play">How to Play</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
