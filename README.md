@@ -32,7 +32,6 @@ This is a new repository of a group project for the course "Software Project II"
     AR Game Project by AR-Game-Project-KHEEEN <br/>
     A Student Group Project of Haaga-Helia University of Applied Sciences <br/>
     Made with Viro React <br/>
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/github_username/repo_name">View Demo</a>
