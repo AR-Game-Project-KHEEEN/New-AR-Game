@@ -217,7 +217,6 @@ Check your firewall settings. Choose "Allow an app through firewall". Press Chan
 
 If you get the following error: “Error connecting to package server”, double check that your phone and computer are in the same wifi.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->
@@ -227,7 +226,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -241,7 +239,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
