@@ -267,7 +267,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- AUTHORS -->
 ## Authors
 
-
+* [](Alhroth Kasper)
+* []()
+* []()
 
 
 
