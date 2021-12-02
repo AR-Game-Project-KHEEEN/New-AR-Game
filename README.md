@@ -270,7 +270,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * []()Alhroth Kasper
 * []()Friman Henry
 * []()Haikka Essi
-* Heikonen Emilia
+* [Heikonen Emilia](https://github.com/emiliaheikonenkoulu)
 * Ruuska Eetu
 * Rytkönen Noora
 
