@@ -66,13 +66,11 @@ export default class App extends Component {
   // the player's score during the actual gameplay:
   // ----> the score variable's value is increased by a number
   //       based on the target object's number (from 1 to 10)
-  
   updateScore = (score) => {
     this.setState({
       score: this.state.score + score
     })
   }
-
 
   // Creating a render function, which
   // renders the right content based on
@@ -89,7 +87,6 @@ export default class App extends Component {
         return this.renderGameView()
     }
   }
-
 
   // Creating a function renderUI, which is used to
   // to show the main menu screen when starting the game:
