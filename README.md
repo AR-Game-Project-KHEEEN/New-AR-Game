@@ -214,5 +214,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [issues-shield]: https://img.shields.io/github/issues/AR-Game-Project-KHEEEN/New-AR-Game.svg?style=for-the-badge
 [issues-url]: https://github.com/AR-Game-Project-KHEEEN/New-AR-Game/issues
 [license-shield]: https://img.shields.io/github/license/AR-Game-Project-KHEEEN/New-AR-Game.svg?style=for-the-badge
-[license-url]: https://github.com/AR-Game-Project-KHEEEN/New-AR-Game/blob/master/LICENSE.txt
+[license-url]: https://github.com/AR-Game-Project-KHEEEN/New-AR-Game/master/LICENSE.txt
 [product-screenshot]: images/screenshot.png
