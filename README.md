@@ -90,8 +90,6 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 * [React.js](https://reactjs.org/)
 * [ViroMedia](https://viromedia.com/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
