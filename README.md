@@ -87,14 +87,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [ViroMedia](https://viromedia.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -116,22 +110,105 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Install if you don't already have Node, Python2 (https://www.python.org/downloads/) and JDK
+2. Install React Native CLI
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   npm install -g react-native-cli
    ```
-3. Install NPM packages
+3. Install ViroMedia app to your phone
    ```sh
-   npm install
+   https://play.google.com/store/apps/details?id=com.viromedia.viromedia&hl=fi&gl=US
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Clone this repository to your PC
+   ```sh
+   https://github.com/AR-Game-Project-KHEEEN/New-AR-Game
    ```
+5. Unzip node_modules and move the node_modules folder to your root of the project
+
+6. Start the program
+  ```sh
+  npm start
+  ```
+  Connect your phone to the same Wifi with your PC
+  Start the ViroMedia in your phone
+  Choose </> Enter Testbed in the menu from top left corner
+  Enter your computers IPv4-address
+  Press Go
+
+Known issues in installation:
+
+Installation Issue #1:
+If you get this error:
+<a>
+    <img src="js/res/errorInstalling.png" alt="error" width="80" height="80">
+</a>
+node_modules/metro-config/src/defaults/blacklist.js
+Change row 14 in 
+  var sharedBlackList
+  to
+  var sharedBlacklist = [   
+
+  /node_modules[\/\\]react[\/\\]dist[\/\\].*/, 
+
+  /website\/node_modules\/.*/, 
+
+  /heapCapture\/bundle\.js/, 
+
+  /.*\/__tests__\/.*/ 
+
+  ]; 
+
+<a>
+    <img src="js/res/blacklistImage.png" alt="error" width="80" height="80">
+</a>
+
+After that restart the program with npm start
+
+Installation Issue #2:
+If you get this error:
+
+error: Error: Unable to resolve module fbjs/lib/invariant from C:\ViroSample\node_modules\react-viro\components\Material\ViroMaterials.js: fbjs/lib/invariant could not be found within the project or in these directories: 
+
+  node_modules 
+
+  ..\node_modules 
+
+You need to install fbjs
+  ```sh
+  npm install fbjs
+  ```
+
+After that you might get this error:
+
+error: Error: Unable to resolve module create-react-class from C:\ViroSample\node_modules\react-viro\components\ViroMaterialVideo.js: create-react-class could not be found within the project or in these directories: 
+
+  node_modules 
+
+  ..\node_modules 
+
+You need to install create-react-class
+  ```sh
+  npm install create-react-class
+  ```
+
+If you get this error:
+
+Console.error: React Native version mismatch. 
+
+JavaScript version: 0.65.1 
+
+Native version: 0.59.9 
+
+Go to package.json and in dependencies-table change "react-native" -version to "^0.59.3"
+
+If you still get an error about not being able to connect to Node server:
+Failed to load bundle, could not connect to development server
+
+Check your firewall settings. Choose "Allow an app through firewall". Press Change Setup and press check on every thing that reads Node.js: Server-side Javascript.
+
+If you get the following error: “Error connecting to package server”, double check that your phone and computer are in the same wifi.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->
