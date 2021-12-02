@@ -80,7 +80,7 @@ This is a new repository of a group project for the course "Software Project II"
 <img src="js/res/molkkyVideo.gif">
 
 <p>The game is called AR Block Throwing Game. It was inspired by finnish outdoors game called "Mölkky".</br>
-This is an artificial reality game where you throw one wooden block at other wooden blocks to knock them down and get points.</br></br>
+This is an augmented reality game where you throw one wooden block at other wooden blocks to knock them down and get points.</br></br>
 You play the game through your phones camera view.</p>
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
