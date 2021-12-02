@@ -69,6 +69,15 @@ This is a repository of a group project for the course "Software Project II"
 This is an augmented reality game where you throw one wooden block at other wooden blocks to knock them down and get points.</br></br>
 You play the game through your phones camera view.</p>
 
+### How to Play
+* Moving the wooden block:
+  * Hold the block with your finger and move it in your direction
+* Throwing the wooden block:
+  * While holding the block, swipe your finger and release it   
+* Picking up the wooden block:
+  * Hold the block with your finger and move it in your direction
+  * IF THE BLOCK GETS STUCK IN THE DISTANCE, MOVE IT SLOWLY UP AND DOWN  
+
 ### Built With
 
 * [React.js](https://reactjs.org/)
