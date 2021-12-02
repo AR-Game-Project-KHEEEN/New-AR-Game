@@ -141,7 +141,7 @@ Installation Issue #1:
 If you get this error:
 
 <a>
-    <img src="js/res/errorInstalling.png" alt="error" width="700" height="700">
+    <img src="js/res/errorInstalling.png" alt="error">
 </a>
 
 node_modules/metro-config/src/defaults/blacklist.js
@@ -161,7 +161,7 @@ Change row 14 in
   ]; 
 
 <a>
-    <img src="js/res/blacklistImage.png" alt="error" width="700" height="700">
+    <img src="js/res/blacklistImage.png" alt="error">
 </a>
 
 After that restart the program with npm start
