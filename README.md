@@ -74,6 +74,12 @@ This is a new repository of a group project for the course "Software Project II"
 This is an augmented reality game where you throw one wooden block at other wooden blocks to knock them down and get points.</br></br>
 You play the game through your phones camera view.</p>
 
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
+Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+
+
+
 ### Built With
 
 * [React.js](https://reactjs.org/)
@@ -107,6 +113,10 @@ This is an example of how to list things you need to use the software and how to
 3. Install ViroMedia app to your phone
    ```sh
    https://play.google.com/store/apps/details?id=com.viromedia.viromedia&hl=fi&gl=US
+   
+   or
+   
+   https://apps.apple.com/us/app/viro-media/id1163100576
    ```
 4. Clone this repository to your PC
    ```sh
