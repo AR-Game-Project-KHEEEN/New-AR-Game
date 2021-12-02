@@ -39,7 +39,7 @@ export default class GameScene extends Component {
     _playerCollide() {
 
       //  this.setState({position: [0.1, -2, -2]});
-        console.log("It works");
+        console.log("It works!");
 
     }
 
