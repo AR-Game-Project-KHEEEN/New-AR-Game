@@ -126,20 +126,27 @@ This is an example of how to list things you need to use the software and how to
   Enter your computers IPv4-address</br>
   Press Go</br>
 
-Known issues in installation:
-
-Installation Issue #1:
-If you get this error:
-
+### Known issues in installation:
+<br/>
+<b>Installation Issue #1:</b>
+<br/>
+<br/>
+If you get this error: 
+<br/>
+<br/>
 <a>
     <img src="js/res/errorInstalling.png" alt="error">
 </a>
+<br/>
+1. Go to the following file: <i>node_modules/metro-config/src/defaults/blacklist.js</i>
+<br/>
+<br/>
+2. Change row 14 in var sharedBlackList into the following: 
+<br/>
+<br/>
 
-node_modules/metro-config/src/defaults/blacklist.js</br> 
-Change row 14 in</br></br>
-  var sharedBlackList</br> 
-  to</br></br>
-  var sharedBlacklist = [   
+```sh
+ var sharedBlacklist = [   
 
   /node_modules[\/\\]react[\/\\]dist[\/\\].*/, 
 
@@ -149,60 +156,111 @@ Change row 14 in</br></br>
 
   /.*\/__tests__\/.*/ 
 
-  ]; 
+  ];
+```
 
 <a>
     <img src="js/res/blacklistImage.png" alt="error">
 </a>
+After that restart the program with npm start.
+<br/>
+<br/>
+<br/>
 
-After that restart the program with npm start
-
-Installation Issue #2:
+<b>Installation Issue #2:</b>
+<br/>
+<br/>
 If you get this error:
+<br/>
 
-Error: Unable to resolve module fbjs/lib/invariant from</br>
-C:\ViroSample\node_modules\react-viro\components\Material\ViroMaterials.js: fbjs/lib/nvariant</br> 
-could not be found within the project or in these directories: 
+```sh
+error: Error: Unable to resolve module fbjs/lib/invariant from C:\ViroSample\node_modules\react-viro\components\Material\ViroMaterials.js: fbjs/lib/invariant could not be found within the project or in these directories: 
 
   node_modules 
 
-  ..\node_modules 
+  ..\node_modules
+```
 
-You need to install fbjs
-  ```sh
-  npm install fbjs
-  ```
+<br/>
+You need to install fbjs: 
+<br/>
+<br/>
 
+```sh
+npm install fbjs
+```
+<br/>
 After that you might get this error:
+<br/>
+<br/>
 
-Error: Unable to resolve module create-react-class from</br>
-C:\ViroSample\node_modules\react-viro\components\ViroMaterialVideo.js:</br> create-react-class could not be found within the project or in these directories: </br>
+```sh
+error: Error: Unable to resolve module create-react-class from C:\ViroSample\node_modules\react-viro\components\ViroMaterialVideo.js: create-react-class could not be found within the project or in these directories: 
 
   node_modules 
 
   ..\node_modules 
+```
+<br/>
 
-You need to install create-react-class
+You need to install create-react-class:
+<br/>
+
   ```sh
   npm install create-react-class
   ```
 
+<br/>
+<br/>
+<b>Installation Issue #3:</b>
+<br/>
+<br/>
 If you get this error:
+<br/>
+<br/>
 
+```sh
 Console.error: React Native version mismatch. 
 
 JavaScript version: 0.65.1 
 
 Native version: 0.59.9 
+```
 
+<br/>
 Go to package.json and in dependencies-table change "react-native" -version to "^0.59.3"
 
-If you still get an error about not being able to connect to Node server:
-Failed to load bundle, could not connect to development server
+<br/>
+<br/>
+<br/>
 
+If you still get an error about not being able to connect to Node server: 
+<br/>
+
+```sh
+Failed to load bundle, could not connect to development server
+```
+<br/>
 Check your firewall settings. Choose "Allow an app through firewall". Press Change Setup and press check on every thing that reads Node.js: Server-side Javascript.
 
-If you get the following error: “Error connecting to package server”, double check that your phone and computer are in the same wifi.
+<br/>
+<br/>
+<br/>
+<b>Installation Issue #4:</b>
+<br/>
+<br/>
+If you get the following error: 
+<br/>
+<br/>
+
+```sh
+“Error connecting to package server”
+```
+<br/>
+Double check that your phone and computer are in the same wifi.
+<br/>
+<br/>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
