@@ -52,13 +52,13 @@ This is a repository of a group project for the course "Software Project II"
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#Known issues in installation:">Known issues in installation</a></li>
       </ul>
     </li>
     <li><a href="#license">License</a></li>
     <li><a href="#authors">Authors</a></li>
   </ol>
 </details>
-
 
 
 <!-- ABOUT THE PROJECT -->
