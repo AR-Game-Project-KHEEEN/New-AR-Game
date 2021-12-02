@@ -1,5 +1,5 @@
 # New-AR-Game
-This is a new repository of a group project for the course "Software Project II"
+This is a repository of a group project for the course "Software Project II"
 
 <div id="top"></div>
 
