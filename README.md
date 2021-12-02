@@ -267,12 +267,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- AUTHORS -->
 ## Authors
 
-* []()Alhroth Kasper
-* []()Friman Henry
-* []()Haikka Essi
+* [Alhroth Kasper](https://github.com/kasperahlroth)
+* [Friman Henry](https://github.com/hffriman)
+* [Haikka Essi](https://github.com/haikess)
 * [Heikonen Emilia](https://github.com/emiliaheikonenkoulu)
-* Ruuska Eetu
-* Rytkönen Noora
+* [Ruuska Eetu](https://github.com/eeturuus)
+* [Rytkönen Noora](https://github.com/NooraRytkonen)
 
 
 
