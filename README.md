@@ -59,7 +59,6 @@ This is a repository of a group project for the course "Software Project II"
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#authors">Authors</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -271,16 +270,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * [Heikonen Emilia](https://github.com/emiliaheikonenkoulu)
 * [Ruuska Eetu](https://github.com/eeturuus)
 * [Rytkönen Noora](https://github.com/NooraRytkonen)
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
 
 
 
