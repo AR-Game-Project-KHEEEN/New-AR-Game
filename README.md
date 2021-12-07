@@ -110,7 +110,10 @@ Game operates on Android and iOS devices.
    ```sh
    https://github.com/AR-Game-Project-KHEEEN/New-AR-Game
    ```
-5. Unzip node_modules and move the node_modules folder to your root of the project
+5. Install the necessary modules
+   ```sh
+   npm install
+   ```
 
 6. Start the program
   ```sh
