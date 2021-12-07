@@ -116,9 +116,9 @@ Game operates on Android and iOS devices.
    ```
 
 6. Start the program
-  ```sh
-  npm start
-  ```
+   ```sh
+   npm start
+   ```
   Connect your phone to the same WiFi with your PC</br>
   Start the ViroMedia in your phone</br>
   Choose </> Enter Testbed in the menu from top left corner</br>
