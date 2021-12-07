@@ -112,7 +112,7 @@ Game operates on Android and iOS devices.
    ```
 5. Install the necessary modules
    ```sh
-   npm install
+   npm update
    ```
 
 6. Start the program
