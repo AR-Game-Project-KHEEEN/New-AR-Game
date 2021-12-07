@@ -91,17 +91,6 @@ You play the game through your phones camera view.</p>
 
 Game operates on Android and iOS devices.
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Install if you don't already have Node, Python2 (https://www.python.org/downloads/) and JDK
